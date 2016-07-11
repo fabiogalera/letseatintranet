@@ -21,7 +21,7 @@ class MudancaTabelaFuncionarios extends Migration
             $table->string('tipo');
             $table->dropColumn('celular');
             $table->dropColumn('bairro');
-            $table->renameColumn('endereco','rua')
+            $table->renameColumn('endereco','rua');
 
         });
     }
@@ -42,7 +42,7 @@ class MudancaTabelaFuncionarios extends Migration
             $table->dropColumn('tipo');
             $table->string('celular');
             $table->string('bairro');
-            $table->renameColumn('rua','endereco')
+            $table->renameColumn('rua','endereco');
         });
     }
 }
