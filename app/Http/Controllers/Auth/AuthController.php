@@ -93,8 +93,6 @@ class AuthController extends Controller
     {
         $user = Socialite::with('facebook')->user();
 
-        dd($user);
-
         $authUser = $this->findOrCreateUser($user);
 
         if ($authUser->approved == 'Y') {
