@@ -12,7 +12,9 @@ class NullableRecisaoColumn extends Migration
      */
     public function up()
     {
-        $table->dropColumn('recisao');
+        Schema::table('funcionarios', function ($table) {
+            $table->dropColumn('recisao');
+        });
     }
 
     /**
