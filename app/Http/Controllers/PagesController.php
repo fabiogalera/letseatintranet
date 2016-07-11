@@ -18,6 +18,10 @@ class PagesController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => array('login', 'logoff')]);
+        if (!Auth::check())
+        {
+            return redirect()->route('login');
+        }
     }
 
     public function home () {

@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use DateTime;
 use App\Funcionario;
 use App\User;
+use Auth;
 use Yajra\Datatables\Datatables;
 
 use App\Http\Requests;
@@ -23,6 +24,10 @@ class FuncionariosController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        if (!Auth::check())
+        {
+            return redirect()->route('login');
+        }
     }
 
     public function index()
