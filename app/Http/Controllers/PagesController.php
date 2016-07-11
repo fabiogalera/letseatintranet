@@ -10,11 +10,18 @@ use App\Http\Requests;
 
 class PagesController extends Controller
 {
-    public function home () {
-        if (Auth::check())
-            return view('welcome');
-            return view('auth.login');
 
+    protected $redirectTo = '/';
+    protected $redirectPath = '/';
+    protected $loginPath = '/login';
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => array('login', 'logoff')]);
+    }
+
+    public function home () {
+        return view('welcome');
     }
 
     public function login () {

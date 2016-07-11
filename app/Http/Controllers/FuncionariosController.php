@@ -16,6 +16,15 @@ use App\Http\Requests;
 class FuncionariosController extends Controller
 {
 
+    protected $redirectTo = '/';
+    protected $redirectPath = '/';
+    protected $loginPath = '/login';
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //$funcionario = Funcionario::all();

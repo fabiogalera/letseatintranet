@@ -33,10 +33,9 @@ class AuthController extends Controller
     protected $loginPath = '/login';
 
 
-
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware('auth', ['except' => array('login', 'logoff')]);
     }
 
     protected function validator(array $data)
