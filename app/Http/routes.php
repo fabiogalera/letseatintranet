@@ -6,6 +6,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     $loggeduser = Auth::user();
 
+    if (is_null($loggeduser)) {
+        return redirect()->route('login');
+    }
+
     Route::get('funcionarios/json', array('as' => 'funcionarios.ajax', 'uses' => 'FuncionariosController@ajax'));
     Route::resource("funcionarios", "FuncionariosController");
 
