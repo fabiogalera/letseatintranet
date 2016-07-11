@@ -101,23 +101,30 @@ class AuthController extends Controller
 
         $authUser = $this->findOrCreateUser($user);
 
-        Auth::login($authUser, true);
-
-        return Redirect::to('welcome');
-
+        if ($authUser->approved == 'Y') {
+            Auth::login($authUser, true);
+            return Redirect::to('welcome');
+        } else {
+            return 'Olá ' . $authUser->nome . ', sua requisição de acesso foi enviada e aguarda aprovação.' ;
+        }
     }
 
     private function findOrCreateUser($facebookUser)
     {
-        if ($authUser = User::where('facebook', $facebookUser->id)->first()) {
-            return $authUser;
+
+        $authUser = User::where('facebook_id', $facebookUser->id)->first();
+
+        if ( is_null($authUser) ) {
+            return User::create([
+                'name' => $facebookUser->name,
+                'email' => $facebookUser->email,
+                'facebook_id' => $facebookUser->id,
+                'avatar' => $facebookUser->avatar,
+                'approved' => 'N'
+            ]);
         }
 
-        return User::create([
-            'name' => $facebookUser->name,
-            'email' => $facebookUser->email,
-            'facebook_id' => $facebookUser->id,
-            'avatar' => $facebookUser->avatar
-        ]);
+        return $authUser;
+
     }
 }

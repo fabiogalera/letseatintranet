@@ -11,13 +11,14 @@ use App\Http\Requests;
 class PagesController extends Controller
 {
     public function home () {
-        return view('welcome');
+        if (Auth::check())
+            return view('welcome');
+            return view('auth.login');
+
     }
 
     public function login () {
-        if (Auth::check())
-            return 'Welcome back, ' . Auth::user()->username;
-            return view('auth.login');
+        return view('auth.login');
     }
 
 }
