@@ -91,12 +91,33 @@ class AuthController extends Controller
      */
     public function handleProviderCallback(Request $request)
     {
-        if (Input::get('error') == 'access_denied') {
-            return redirect('login');
-
+        try {
+            $user = Socialite::driver('facebook')->user();
+        } catch (Exception $e) {
+            return Redirect::to('auth/login');
         }
+
         $user = Socialite::with('facebook')->user();
 
-        dd($user);
+        $authUser = $this->findOrCreateUser($user);
+
+        Auth::login($authUser, true);
+
+        return Redirect::to('welcome');
+
+    }
+
+    private function findOrCreateUser($facebookUser)
+    {
+        if ($authUser = User::where('facebook', $facebookUser->id)->first()) {
+            return $authUser;
+        }
+
+        return User::create([
+            'name' => $facebookUser->name,
+            'email' => $facebookUser->email,
+            'facebook_id' => $facebookUser->id,
+            'avatar' => $facebookUser->avatar
+        ]);
     }
 }
