@@ -192,6 +192,7 @@ return array(
     'Null_Frame_Decorator' => $vendorDir . '/dompdf/dompdf/include/null_frame_decorator.cls.php',
     'Null_Frame_Reflower' => $vendorDir . '/dompdf/dompdf/include/null_frame_reflower.cls.php',
     'Null_Positioner' => $vendorDir . '/dompdf/dompdf/include/null_positioner.cls.php',
+    'NullableMotivoColumn' => $baseDir . '/database/migrations/2016_07_11_164442_Nullable_motivo_column.php',
     'NullableRecisaoColumn' => $baseDir . '/database/migrations/2016_07_11_162643_Nullable_recisao_column.php',
     'PDFLib_Adapter' => $vendorDir . '/dompdf/dompdf/include/pdflib_adapter.cls.php',
     'PHPUnit_Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',

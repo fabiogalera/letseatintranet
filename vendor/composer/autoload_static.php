@@ -598,6 +598,7 @@ class ComposerStaticInit6c271f521b97f9a058e8edf82712defc
         'Null_Frame_Decorator' => __DIR__ . '/..' . '/dompdf/dompdf/include/null_frame_decorator.cls.php',
         'Null_Frame_Reflower' => __DIR__ . '/..' . '/dompdf/dompdf/include/null_frame_reflower.cls.php',
         'Null_Positioner' => __DIR__ . '/..' . '/dompdf/dompdf/include/null_positioner.cls.php',
+        'NullableMotivoColumn' => __DIR__ . '/../..' . '/database/migrations/2016_07_11_164442_Nullable_motivo_column.php',
         'NullableRecisaoColumn' => __DIR__ . '/../..' . '/database/migrations/2016_07_11_162643_Nullable_recisao_column.php',
         'PDFLib_Adapter' => __DIR__ . '/..' . '/dompdf/dompdf/include/pdflib_adapter.cls.php',
         'PHPUnit_Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
