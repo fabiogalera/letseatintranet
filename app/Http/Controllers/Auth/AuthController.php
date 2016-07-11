@@ -99,7 +99,7 @@ class AuthController extends Controller
             Auth::login($authUser, true);
             return Redirect::to('welcome');
         } else {
-            return 'Olá ' . $authUser->nome . ', sua requisição de acesso foi enviada e aguarda aprovação.' ;
+            return 'Olá ' . $authUser->name . ', sua requisição de acesso foi enviada e aguarda aprovação.' ;
         }
     }
 
