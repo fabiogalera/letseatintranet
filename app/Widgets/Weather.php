@@ -17,6 +17,20 @@ class Weather extends AbstractWidget
      * Treat this method as a controller action.
      * Return view() or other content to display.
      */
+
+    public function placeholder()
+    {
+        return "Loading...";
+    }
+
+    public function container()
+    {
+        return [
+            'element'       => 'div',
+            'attributes'    => 'class="arrilot-widget-container"',
+        ];
+    }
+
     public function run()
     {
         //

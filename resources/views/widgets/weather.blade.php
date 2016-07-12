@@ -1,5 +1,5 @@
 <!-- start of weather widget -->
-<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="col-md-4 col-sm-4 col-xs-12 arrilot-widget-container">
     <div class="x_panel">
         <div class="x_title">
             <h2>Tempo <small>Valinhos</small></h2>
@@ -104,4 +104,3 @@
     </div>
 
 </div>
-<!-- end of weather widget -->
