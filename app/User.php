@@ -51,6 +51,6 @@ class User extends Authenticatable
     }
     private function checkIfUserHasRole($need_role)
     {
-        return (strtolower($need_role)==strtolower($this->have_role->name)) ? true : false;
+        return  (strtolower($need_role)==strtolower($this->have_role->name)) ? true : false;
     }
 }
