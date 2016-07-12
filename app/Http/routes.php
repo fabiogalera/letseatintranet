@@ -4,8 +4,6 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('/login', 'PagesController@login');
-
     Route::get('funcionarios/json', [
         'middleware' => ['auth', 'roles'],
         'as' => 'funcionarios.ajax',
@@ -71,8 +69,6 @@ Route::group(['middleware' => ['web']], function () {
         'roles' => ['administrator']
     ]);
 
-    Route::get('/', 'PagesController@home');
-
     Route::get('/voucher', [
         'middleware' => ['auth', 'roles'],
         'uses' => 'PagesController@voucher',
@@ -90,6 +86,10 @@ Route::group(['middleware' => ['web']], function () {
         'uses' => 'PagesController@espera',
         'roles' => ['administrator', 'manager']
     ]);
+
+    Route::get('/', 'PagesController@home');
+    
+    Route::get('/login', 'PagesController@login');
 
     Route::get('/logoff', 'AuthController@logoff');
 
