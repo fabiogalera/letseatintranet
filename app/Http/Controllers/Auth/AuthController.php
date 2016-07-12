@@ -55,7 +55,7 @@ class AuthController extends Controller
     public function logoff()
     {
         Auth::logout();
-        return redirect()->action('PageController@login');
+        return redirect('auth/login');
     }
 
     public function redirectToProvider(Request $request)

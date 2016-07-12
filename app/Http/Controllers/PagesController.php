@@ -18,7 +18,7 @@ class PagesController extends Controller
     public function home () {
         if (!Auth::check())
         {
-            return redirect()->action('PageController@login');
+            rreturn redirect('auth/login');
         }
 
         return view('welcome');
@@ -27,9 +27,9 @@ class PagesController extends Controller
     public function login () {
         if (Auth::check())
         {
-            return redirect()->action('PageController@home');
+            return redirect('/');
         }
-        
+
         return view('auth.login');
 
     }
