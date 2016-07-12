@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 // First copy this file into your middleware directoy
 use Closure;
 use Illuminate\Session\Store;
-
+use Auth;
 
 class CheckRole {
 
