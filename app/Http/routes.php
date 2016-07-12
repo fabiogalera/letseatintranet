@@ -1,10 +1,8 @@
 <?php
 
+Route::get('/login', 'PagesController@login');
 
 Route::group(['middleware' => ['web']], function () {
-
-
-    Route::get('/login', 'PagesController@login');
 
     Route::get('funcionarios/json', [
         'middleware' => ['auth', 'roles'],
@@ -14,7 +12,7 @@ Route::group(['middleware' => ['web']], function () {
     ]);
 
     // FUNCIONARIOS
-    
+
     Route::get("/funcionarios", [
         'middleware' => ['auth', 'roles'],
         'uses' => 'FuncionariosController@index',
