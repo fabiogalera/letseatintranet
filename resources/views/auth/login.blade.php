@@ -47,13 +47,14 @@
                         </div>
 
                         <br />
-                        <a href="/auth/facebook" class="btn btn-block btn-social btn-lg btn-facebook">
-                            <span class="fa fa-facebook"></span> Logar com Facebook
-                        </a>
                         <br />
                     </div>
+            </section>
+        </div>
 
-
+                    <a href="/auth/facebook" class="btn btn-block btn-social btn-lg btn-facebook">
+                        <span class="fa fa-facebook"></span> Logar com Facebook
+                    </a>
                     <div class="clearfix"></div>
 
                     <div class="separator">
@@ -65,8 +66,6 @@
                         </div>
                     </div>
                 </form>
-            </section>
-        </div>
     </div>
 </div>
 </body>
