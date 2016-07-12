@@ -17,15 +17,15 @@
                         <div class="pull-right">
                             <a href='/funcionarios/create' class="btn btn-primary"> <span class="glyphicon glyphicon-plus"></span> Adicionar </a>
                         </div>
-                        <div class="row">
-                            @if (session()->has('message'))
-                                <div class="alert alert-{{ session('level') }}">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="row">
+                        @if (session()->has('message'))
+                            <div class="alert alert-{{ session('level') }}">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-                                    {{ session('message') }}
-                                </div>
-                            @endif
-                        </div>
+                                {{ session('message') }}
+                            </div>
+                        @endif
                     </div>
                     <div class="x_content">
                         <div class="demo-container" style="height:250px">
