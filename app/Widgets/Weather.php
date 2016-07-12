@@ -11,7 +11,9 @@ class Weather extends AbstractWidget
      *
      * @var array
      */
-    protected $config = [];
+    protected $config = [
+        'use_jquery_for_ajax_calls' => true,
+    ];
 
     /**
      * Treat this method as a controller action.
