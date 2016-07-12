@@ -22,7 +22,7 @@ class CheckRole {
         {
             return $next($request);
         }
-        flash('Message', 'danger')
+        flash('Message', 'danger');
         return redirect('error');
     }
 
