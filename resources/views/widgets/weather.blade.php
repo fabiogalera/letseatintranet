@@ -1,5 +1,6 @@
 <!-- start of weather widget -->
-
+<div class="x_panel">
+<div class="x_title">
             <h2>Tempo <small>Valinhos</small></h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -98,3 +99,5 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
+        </div>
+</div>
