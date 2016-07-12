@@ -35,12 +35,12 @@ class Weather extends AbstractWidget
         $key = 'ae300dcfd8fa70066081dd0765e4fc69';
         $loc = '-22.9816458,-47.0126948';
 
-        $request = $client->get('https://api.forecast.io/forecast/'. $key . '/' . $loc)->getBody();
+        $request = $client->get('https://api.forecast.io/forecast/'. $key . '/' . $loc . '/?lang=pt')->getBody();
 
         $obj = json_decode($request);
 
         dd($obj);
 
-        return view("widgets.weather", ['config' => $this->config, 'result' => $res]);
+        return view("widgets.weather", ['config' => $this->config, 'result' => $obj]);
     }
 }
