@@ -21,7 +21,7 @@ class PagesController extends Controller
     {
         $this->middleware('auth', ['except' => array('login', 'logoff')]);
         $this->loggedUser = Auth::user();
-        dd($this->$loggedUser);
+        dd($this->loggedUser);
         if (!Auth::check())
         {
             return redirect()->route('login');
