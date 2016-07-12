@@ -15,6 +15,15 @@ class PagesController extends Controller
     protected $redirectPath = '/';
     protected $loginPath = '/login';
 
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => array('logoff')]);
+        if (!Auth::check())
+        {
+            return redirect()->route('login');
+        }
+    }
+
     public function home () {
         if (Auth::check())
         {
