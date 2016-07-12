@@ -25,10 +25,11 @@
     <a class="hiddenanchor" id="signup"></a>
     <a class="hiddenanchor" id="signin"></a>
 
-
+    <div style="width: 200px;" class="center-block">
     <div class="login_wrapper">
-        <div class="animate form login_form">
+            <section class="login_content center-block">
                     <div class="form-group center-block"><img src="{{ asset("images/logo-lets.png") }}" width="240" height="272"/></div>
+
                         <br />
 
                         <div class="row">
@@ -45,10 +46,10 @@
 
                         <br />
                         <br />
-                    </div>
-        </div>
+            </section>
 
-                    <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
+
+                    <a href="/auth/facebook" class="btn btn-block btn-social btn-lg btn-facebook">
                         <span class="fa fa-facebook"></span> Logar com Facebook
                     </a>
                     <div class="clearfix"></div>
@@ -61,6 +62,7 @@
                             <p>©2016 Todos os direitos reservados. Let's Eat ® - Marca registrada de Marcos Nunes.</p>
                         </div>
                     </div>
+    </div>
     </div>
 </div>
 </body>
