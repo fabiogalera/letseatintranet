@@ -22,7 +22,7 @@ class CheckRole {
      * @param  \Closure  $next
      * @return mixed
      */
-    
+
     public function handle($request, Closure $next)
     {
         $isLoggedIn = $request->path() != 'logout';
@@ -30,7 +30,7 @@ class CheckRole {
             $this->session->put('lastActivityTime', time());
         elseif(time() - $this->session->get('lastActivityTime') > $this->timeout){
             $this->session->forget('lastActivityTime');
-            auth()->logout();
+            Auth::logout();
             $parameters = ['message' => 'Sessão expirada', 'level' => 'danger'];
             return redirect('error')->with($parameters);
         }
