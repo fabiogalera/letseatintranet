@@ -25,6 +25,18 @@
     <a class="hiddenanchor" id="signup"></a>
     <a class="hiddenanchor" id="signin"></a>
 
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            @if (session()->has('message'))
+                <div class="alert alert-{{ session('level') }}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+                    {{ session('message') }}
+                </div>
+            @endif
+        </div>
+    </div>
+    
     <div class="login_wrapper">
         <div class="animate form login_form">
             <section class="login_content center-block">

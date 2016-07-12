@@ -32,7 +32,7 @@ class CheckRole {
             $this->session->forget('lastActivityTime');
             Auth::logout();
             $parameters = ['message' => 'Sessão expirada', 'level' => 'danger'];
-            return redirect('error')->with($parameters);
+            return redirect('login')->with($parameters);
         }
 
         $isLoggedIn ? $this->session->put('lastActivityTime', time()) : $this->session->forget('lastActivityTime');
