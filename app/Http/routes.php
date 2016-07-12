@@ -1,21 +1,45 @@
 <?php
-Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('/login', 'PagesController@login');
+Route::get('/login', 'PagesController@login');
 
-    Route::get('funcionarios/json', array('as' => 'funcionarios.ajax', 'uses' => 'FuncionariosController@ajax'));
-    Route::resource("funcionarios", "FuncionariosController");
+Route::get('funcionarios/json', [
+    'middleware' => ['auth', 'roles'],
+    array('as' => 'funcionarios.ajax', 'uses' => 'FuncionariosController@ajax'),
+    'roles' => ['administrator', 'manager']
+]);
 
-    //Route::get("/funcionarios","FuncionariosController@index");
-    //Route::get("/funcionarios/create","FuncionariosController@index");
+Route::resource("funcionarios", [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'FuncionariosController',
+    'roles' => ['administrator', 'manager']
+]);
 
-    Route::get('/', 'PagesController@home');
-    Route::get('/voucher', 'PagesController@voucher');
-    Route::get('/espera', 'PagesController@espera');
-    Route::get('/fechamento', 'PagesController@fechamento');
+Route::get('/', [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'PagesController@home',
+    'roles' => ['administrator', 'manager', 'employee']
+]);
 
-    Route::get('/logoff', 'PagesController@logoff');
-    Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
-    Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
+Route::get('/voucher', [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'PagesController@voucher',
+    'roles' => ['administrator', 'manager', 'employee']
+]);
 
-});
+Route::get('/espera', [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'PagesController@espera',
+    'roles' => ['administrator', 'manager', 'employee']
+]);
+
+Route::get('/fechamento', [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'PagesController@espera',
+    'roles' => ['administrator', 'manager']
+]);
+
+Route::get('/logoff', 'AuthController@logoff');
+
+Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
+
+Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
