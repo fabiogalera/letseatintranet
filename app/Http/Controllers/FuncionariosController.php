@@ -46,7 +46,7 @@ class FuncionariosController extends Controller
 
         $funcionarios->create($data);
 
-        $parameters = ['message' => '<strong> Sucesso ! </strong> Funcionário ' . $funcionarios->nome . ' ' . $funcionarios->sobrenome . ' criado com sucesso;' , 'level' => 'success'];
+        $parameters = ['message' => $funcionarios->nome . ' ' . $funcionarios->sobrenome . ' criado com sucesso;' , 'level' => 'success'];
         return redirect('funcionarios')->with($parameters);
     }
 
@@ -65,7 +65,7 @@ class FuncionariosController extends Controller
         $data['salario'] = floatval(str_replace(',', '.', str_replace('.', '', $request->salario)));
 
         $funcionarios->update($data);
-        $parameters = ['message' => '<strong> Sucesso ! </strong> Funcionário ' . $funcionarios->nome . ' ' . $funcionarios->sobrenome . ' editado com sucesso;' , 'level' => 'success'];
+        $parameters = ['message' => $funcionarios->nome . ' ' . $funcionarios->sobrenome . ' editado com sucesso;' , 'level' => 'success'];
         return redirect('funcionarios')->with($parameters);
     }
 

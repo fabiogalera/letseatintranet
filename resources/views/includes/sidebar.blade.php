@@ -1,11 +1,22 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><span>Let's Eat Intranet</span></a>
+            <a class="site_title"><span>Let's Eat Intranet</span></a>
         </div>
 
         <div class="clearfix"></div>
-
+        <!-- menu profile quick info -->
+        <div class="profile">
+            <div class="profile_pic">
+                <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+                <span>Bem vindo,</span>
+                <h2>{{ Auth::user()->name }}</h2>
+                <small>{{  Auth::user()->role()->getUserRole }}</small>
+            </div>
+        </div>
+        <!-- /menu profile quick info -->
         <br />
 
         <!-- sidebar menu -->
@@ -16,6 +27,7 @@
                     <ul class="nav side-menu">
                         <li><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a>
                         </li>
+
                         <li><a><i class="fa fa-user"></i> Funcionários <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
                                 <li><a href="/funcionarios">Listar Funcionários</a></li>
