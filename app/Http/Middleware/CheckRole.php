@@ -22,8 +22,9 @@ class CheckRole {
         {
             return $next($request);
         }
-        return view();
+        return view('nopermitions');
     }
+
     private function getRequiredRoleForRoute($route)
     {
         $actions = $route->getAction();
