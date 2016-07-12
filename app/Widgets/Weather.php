@@ -40,7 +40,7 @@ class Weather extends AbstractWidget
 
         $obj = json_decode($request);
 
-        Carbon::setLocale('pt_BR');
+        setlocale(LC_TIME, 'pt_BR.utf8');
         $currentlyTime = Carbon::createFromTimestamp($obj->currently->time)->formatLocalized('%A, %d %B %Y - %H:%M');
 
         return view("widgets.weather", ['config' => $this->config, 'result' => $obj, 'currentlyTime' => $currentlyTime]);
