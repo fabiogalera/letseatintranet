@@ -21,49 +21,44 @@
 </head>
 
 <body class="login">
-<div>
+<form>
+<div class="animate form login_form">
+    <section class="login_content center-block">
+
     <a class="hiddenanchor" id="signup"></a>
     <a class="hiddenanchor" id="signin"></a>
 
-    <div style="width: 200px;" class="center-block">
-    <div class="login_wrapper">
-            <section class="login_content center-block">
-                    <div class="form-group center-block"><img src="{{ asset("images/logo-lets.png") }}" width="240" height="272"/></div>
-
-                        <br />
-
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                @if (session()->has('message'))
-                                    <div class="alert alert-{{ session('level') }}">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-                                        {{ session('message') }}
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-
-                        <br />
-                        <br />
-            </section>
-
-
-                    <a href="/auth/facebook" class="btn btn-block btn-social btn-lg btn-facebook">
-                        <span class="fa fa-facebook"></span> Logar com Facebook
-                    </a>
-                    <div class="clearfix"></div>
-
-                    <div class="separator">
-                        <div class="clearfix"></div>
-                        <br />
-
-                        <div>
-                            <p>©2016 Todos os direitos reservados. Let's Eat ® - Marca registrada de Marcos Nunes.</p>
-                        </div>
+    <div class="row center-block form-group"">
+        <div class="center-block" style="width: 400px;">
+            <img src="{{ asset("images/logo-lets.png") }}" width="300" height="341"/>
+        </div>
+     </div>
+    <div class="row form-group center-block">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+                @if (session()->has('message'))
+                    <div class="alert alert-{{ session('level') }}">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ session('message') }}
                     </div>
+                @endif
+        </div>
     </div>
+    <div class="row center-block form-group">
+        <div class="center-block" style="width: 250px;">
+            <a href="/auth/facebook" class="btn btn-block btn-social btn-lg btn-facebook">
+            <span class="fa fa-facebook"></span> Logar com Facebook
+            </a>
+        </div>
     </div>
-</div>
+
+    <div class="row center-block form-group"">
+        <div class="separator center-block" style="width: 500px;">
+            <div>
+                <p>©2016 Todos os direitos reservados. Let's Eat ® - Marca registrada de Marcos Nunes.</p>
+            </div>
+        </div>
+</section>
+    </div>
+</form>
 </body>
 </html>
