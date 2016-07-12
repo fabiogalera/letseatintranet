@@ -1,6 +1,6 @@
 <!-- start of weather widget -->
 
-{{ $currentlyTime = Carbon::createFromTimestamp($result->currently->time) }}
+{{ $currentlyTime = Carbon\Carbon::createFromTimestamp($result->currently->time) }}
 
 <div class="x_title">
             <h2>Tempo <small>Valinhos</small></h2>
