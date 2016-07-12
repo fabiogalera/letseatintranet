@@ -9,7 +9,7 @@ use Illuminate\Session\Store;
 class CheckRole {
 
     protected $session;
-    protected $timeout = 1;
+    protected $timeout = 10;
 
     public function __construct(Store $session){
         $this->session = $session;
@@ -22,6 +22,7 @@ class CheckRole {
      * @param  \Closure  $next
      * @return mixed
      */
+    
     public function handle($request, Closure $next)
     {
         $isLoggedIn = $request->path() != 'logout';
