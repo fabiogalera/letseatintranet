@@ -15,7 +15,7 @@
         <br />
         <br />
         {{ $bag = Session::getMetadataBag() }}
-        
+        {{ dd($bag) }}
         <h4> Inativo por {{ $bag }}</h4>
 
         <!-- sidebar menu -->
