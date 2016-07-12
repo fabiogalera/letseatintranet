@@ -48,7 +48,7 @@
 
             <div class="clearfix"></div>
             <div class="row weather-days">
-                {{!! $array = $result->daily->data }}}
+                {{!! $array = json_decode($result->daily->data, true) }}}
                 @foreach(array_slice($array, 0, 5) as $v)
 
                     {{!! $ShortFormat = Carbon\Carbon::createFromTimestamp($v['time'])->formatLocalized('%a') }}
