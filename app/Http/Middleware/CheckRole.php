@@ -31,7 +31,7 @@ class CheckRole {
         elseif(time() - $this->session->get('lastActivityTime') > $this->timeout){
             $this->session->forget('lastActivityTime');
             Auth::logout();
-            $parameters = ['message' => 'Sessão expirada', 'level' => 'danger'];
+            $parameters = ['message' => 'Sessão expirada. Inatividade excedeu ' . $this->timeout/60 . ' minutos.', 'level' => 'danger'];
             return redirect('login')->with($parameters);
         }
 

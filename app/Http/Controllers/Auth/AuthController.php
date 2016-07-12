@@ -78,7 +78,8 @@ class AuthController extends Controller
             Auth::login($authUser, true);
             return redirect('');
         } else {
-            return 'Olá ' . $authUser->name . ', sua requisição de acesso foi enviada e aguarda aprovação.' ;
+            $parameters = ['message' => $authUser->name . ' você não possui acesso ao sistema. Requisição foi enviada.', 'level' => 'warning'];
+            return redirect('login')->with($parameters);
         }
     }
 
