@@ -9,7 +9,7 @@ use Auth;
 class CheckRole {
 
     protected $session;
-    protected $timeout = 60;
+    protected $timeout = 10;
 
     public function __construct(Store $session){
         $this->session = $session;
