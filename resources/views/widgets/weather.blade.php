@@ -48,17 +48,16 @@
 
             <div class="clearfix"></div>
             <div class="row weather-days">
-                {{!! $array = json_decode($result->daily, true) }}}
-                @foreach(array_slice($array['data'], 0, 5) as $v)
-
+                @foreach(array_slice($result->daily->data, 0, 5) as $index => $v)
+                    {{!! $array = json_decode($result->daily->data->$index, true) }}}
                     {{!! $ShortFormat = Carbon\Carbon::createFromTimestamp($v['time'])->formatLocalized('%a') }}
 
                 <div class="col-sm-2">
                     <div class="daily-weather">
                         <h2 class="day">{{ $ShortFormat }}</h2>
-                        <h3 class="degrees">{{ $v['temperatureMax'] }}</h3>
-                        <canvas id="{{ $v['icon'] }}" width="32" height="32"></canvas>
-                        <h5>{{ $v['windSpeed'] }} <i>km/h</i></h5>
+                        <h3 class="degrees">{{ $array['temperatureMax'] }}</h3>
+                        <canvas id="{{ $array['icon'] }}" width="32" height="32"></canvas>
+                        <h5>{{ $array['windSpeed'] }} <i>km/h</i></h5>
                     </div>
                 </div>
 

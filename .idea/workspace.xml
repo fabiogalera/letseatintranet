@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25e48149-9fc9-42bc-9a3e-adf87c0eab9c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Widgets/Weather.php" afterPath="$PROJECT_DIR$/app/Widgets/Weather.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/widgets/weather.blade.php" afterPath="$PROJECT_DIR$/resources/views/widgets/weather.blade.php" />
     </list>
     <ignored path="project.iws" />
@@ -37,8 +38,8 @@
       <file leaf-file-name="Weather.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Widgets/Weather.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+            <state relative-caret-position="393">
+              <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
               <folding>
                 <element signature="e#31#66#0#PHP" expanded="true" />
               </folding>
@@ -49,10 +50,10 @@
       <file leaf-file-name="weather.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/widgets/weather.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="51" column="49" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
+            <state relative-caret-position="313">
+              <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
               <folding>
-                <marker date="1468357047498" expanded="true" signature="2162:2273" placeholder="{...}" />
+                <marker date="1468357741853" expanded="true" signature="2110:2306" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -146,8 +147,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
         <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/app/Widgets/Weather.php" />
         <option value="$PROJECT_DIR$/app/Providers/CarbonLanguageProvider.php" />
+        <option value="$PROJECT_DIR$/app/Widgets/Weather.php" />
         <option value="$PROJECT_DIR$/resources/views/widgets/weather.blade.php" />
       </list>
     </option>
@@ -392,12 +393,12 @@
       <workItem from="1467676369943" duration="42228000" />
       <workItem from="1467790705901" duration="61045000" />
       <workItem from="1468263637746" duration="242000" />
-      <workItem from="1468264154762" duration="55156000" />
+      <workItem from="1468264154762" duration="55847000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173425000" />
+    <option name="totallyTimeSpent" value="174116000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -823,8 +824,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Widgets/Weather.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+        <state relative-caret-position="393">
+          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
           <folding>
             <element signature="e#31#66#0#PHP" expanded="true" />
           </folding>
@@ -833,10 +834,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/widgets/weather.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="51" column="49" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
+        <state relative-caret-position="313">
+          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
           <folding>
-            <marker date="1468357047498" expanded="true" signature="2162:2273" placeholder="{...}" />
+            <marker date="1468357741853" expanded="true" signature="2110:2306" placeholder="{...}" />
           </folding>
         </state>
       </provider>
