@@ -17,24 +17,25 @@ class PagesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => array('logoff','login')]);
+        $this->middleware('auth', ['except' => array('logoff')]);
     }
 
     public function home () {
-        if (Auth::check())
+        if (!Auth::check())
         {
             return redirect()->route('login');
         }
+
         return view('welcome');
     }
 
     public function login () {
         if (Auth::check())
         {
-            return view('login');
+            return redirect()->route('/');
         }
+        return view('login');
 
-        return redirect()->route('/');
     }
 
 }
