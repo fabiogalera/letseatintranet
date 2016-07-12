@@ -48,11 +48,12 @@
 
             <div class="clearfix"></div>
             <div class="row weather-days">
-                {{!! $i=0 }}
+                {{!! $i=0 !!}}
                 @foreach($result->daily->data as $object)
-                    {{!! $array = (array) $object !!}}
-                    {{!!    Carbon\Carbon::setLocale('pt_BR') !!}}
-                    {{!!    $ShortFormat = Carbon\Carbon::createFromTimestamp($array['time'])->formatLocalized('%a') !!}}
+                    
+                    <?php $array = (array) $object;
+                        Carbon\Carbon::setLocale('pt_BR');
+                       $ShortFormat = Carbon\Carbon::createFromTimestamp($array['time'])->formatLocalized('%a'); ?>
 
                 @if (++$i == 1)
                     @continue
