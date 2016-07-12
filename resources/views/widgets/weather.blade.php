@@ -22,9 +22,9 @@
         <div class="x_content">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="temperature">{{ $currentlyTime }}
-                        <span></span>
-                        <span><b></b></span>
+                    <div class="temperature"><h2>{{ $currentlyTime }}</h2>
+                        <span>bb</span>
+                        <span><b>aa</b></span>
                     </div>
                 </div>
             </div>
