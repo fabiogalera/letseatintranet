@@ -15,7 +15,9 @@
         "jansenfelipe/nfephp-serialize": "^3.10",
         "doctrine/dbal": "^2.5",
         "laracasts/flash": "^2.0",
-        "arrilot/laravel-widgets": "^3.5"
+        "arrilot/laravel-widgets": "^3.5",
+        "vertigolabs/overcast": "^1.0",
+        "guhelski/forecast-php": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -3,6 +3,8 @@
 namespace App\Widgets;
 
 use Arrilot\Widgets\AbstractWidget;
+use GuzzleHttp\Client;
+
 
 class Weather extends AbstractWidget
 {
@@ -22,16 +24,19 @@ class Weather extends AbstractWidget
 
     public function placeholder()
     {
-        return "<i class=\"fa fa-circle-o-notch fa-spin fa-3x fa-fw\"></i>
-                    <span class=\"sr-only\">Loading...</span>";
+        return "<i class=\"fa fa-spinner fa-spin fa-3x fa-fw\"></i>
+                <span class=\"sr-only\">Loading...</span>";
     }
 
     public function run()
     {
-        //
+        $client = new Client();
 
-        return view("widgets.weather", [
-            'config' => $this->config,
-        ]);
+        $key = 'ae300dcfd8fa70066081dd0765e4fc69';
+        $loc = '-22.9816458,-47.0126948';
+
+        $res = $client->request('POST', 'https://api.forecast.io/forecast/'. $key . '/' . $loc);
+
+        return view("widgets.weather", ['config' => $this->config, 'result' => $res]);
     }
 }

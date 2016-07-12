@@ -1,4 +1,5 @@
 <!-- start of weather widget -->
+{{ dd($result) }}
 <div class="x_panel">
 <div class="x_title">
             <h2>Tempo <small>Valinhos</small></h2>

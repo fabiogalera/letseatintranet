@@ -42,6 +42,10 @@ class ComposerStaticInit6c271f521b97f9a058e8edf82712defc
         array (
             'Webmozart\\Assert\\' => 17,
         ),
+        'V' => 
+        array (
+            'VertigoLabs\\Overcast\\' => 21,
+        ),
         'T' => 
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
@@ -141,6 +145,10 @@ class ComposerStaticInit6c271f521b97f9a058e8edf82712defc
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'VertigoLabs\\Overcast\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vertigolabs/overcast/src',
         ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
@@ -424,6 +432,10 @@ class ComposerStaticInit6c271f521b97f9a058e8edf82712defc
         ),
     );
 
+    public static $fallbackDirsPsr0 = array (
+        0 => __DIR__ . '/..' . '/guhelski/forecast-php/src',
+    );
+
     public static $classMap = array (
         'Absolute_Positioner' => __DIR__ . '/..' . '/dompdf/dompdf/include/absolute_positioner.cls.php',
         'Abstract_Renderer' => __DIR__ . '/..' . '/dompdf/dompdf/include/abstract_renderer.cls.php',
@@ -453,6 +465,7 @@ class ComposerStaticInit6c271f521b97f9a058e8edf82712defc
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Role' => __DIR__ . '/../..' . '/app/Role.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\Widgets\\Weather' => __DIR__ . '/../..' . '/app/Widgets/Weather.php',
         'Arrilot\\Widgets\\AbstractWidget' => __DIR__ . '/..' . '/arrilot/laravel-widgets/src/AbstractWidget.php',
         'Arrilot\\Widgets\\AsyncFacade' => __DIR__ . '/..' . '/arrilot/laravel-widgets/src/AsyncFacade.php',
         'Arrilot\\Widgets\\Console\\WidgetMakeCommand' => __DIR__ . '/..' . '/arrilot/laravel-widgets/src/Console/WidgetMakeCommand.php',
@@ -1380,6 +1393,7 @@ class ComposerStaticInit6c271f521b97f9a058e8edf82712defc
         'Font_WOFF' => __DIR__ . '/..' . '/phenx/php-font-lib/classes/Font_WOFF.php',
         'Font_WOFF_Header' => __DIR__ . '/..' . '/phenx/php-font-lib/classes/Font_WOFF_Header.php',
         'Font_WOFF_Table_Directory_Entry' => __DIR__ . '/..' . '/phenx/php-font-lib/classes/Font_WOFF_Table_Directory_Entry.php',
+        'Forecast\\Forecast' => __DIR__ . '/..' . '/guhelski/forecast-php/src/Forecast/Forecast.php',
         'Frame' => __DIR__ . '/..' . '/dompdf/dompdf/include/frame.cls.php',
         'FrameList' => __DIR__ . '/..' . '/dompdf/dompdf/include/frame.cls.php',
         'FrameListIterator' => __DIR__ . '/..' . '/dompdf/dompdf/include/frame.cls.php',
@@ -4679,6 +4693,16 @@ class ComposerStaticInit6c271f521b97f9a058e8edf82712defc
         'TijsVerkoyen\\CssToInlineStyles\\Exception' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Exception.php',
         'TijsVerkoyen\\CssToInlineStyles\\Selector' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Selector.php',
         'TijsVerkoyen\\CssToInlineStyles\\Specificity' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Specificity.php',
+        'VertigoLabs\\Overcast\\ClientAdapterInterface' => __DIR__ . '/..' . '/vertigolabs/overcast/src/ClientAdapterInterface.php',
+        'VertigoLabs\\Overcast\\ClientAdapters\\FileGetContentsClientAdapter' => __DIR__ . '/..' . '/vertigolabs/overcast/src/ClientAdapters/FileGetContentsClientAdapter.php',
+        'VertigoLabs\\Overcast\\ClientAdapters\\GuzzleClientAdapter' => __DIR__ . '/..' . '/vertigolabs/overcast/src/ClientAdapters/GuzzleClientAdapter.php',
+        'VertigoLabs\\Overcast\\Forecast' => __DIR__ . '/..' . '/vertigolabs/overcast/src/Forecast.php',
+        'VertigoLabs\\Overcast\\Overcast' => __DIR__ . '/..' . '/vertigolabs/overcast/src/Overcast.php',
+        'VertigoLabs\\Overcast\\ValueObjects\\Alert' => __DIR__ . '/..' . '/vertigolabs/overcast/src/ValueObjects/Alert.php',
+        'VertigoLabs\\Overcast\\ValueObjects\\DataBlock' => __DIR__ . '/..' . '/vertigolabs/overcast/src/ValueObjects/DataBlock.php',
+        'VertigoLabs\\Overcast\\ValueObjects\\DataPoint' => __DIR__ . '/..' . '/vertigolabs/overcast/src/ValueObjects/DataPoint.php',
+        'VertigoLabs\\Overcast\\ValueObjects\\Precipitation' => __DIR__ . '/..' . '/vertigolabs/overcast/src/ValueObjects/Precipitation.php',
+        'VertigoLabs\\Overcast\\ValueObjects\\Temperature' => __DIR__ . '/..' . '/vertigolabs/overcast/src/ValueObjects/Temperature.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
         'Yajra\\Datatables\\Contracts\\DataTableButtonsContract' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/Contracts/DataTableButtonsContract.php',
@@ -4772,6 +4796,7 @@ class ComposerStaticInit6c271f521b97f9a058e8edf82712defc
             $loader->prefixLengthsPsr4 = ComposerStaticInit6c271f521b97f9a058e8edf82712defc::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit6c271f521b97f9a058e8edf82712defc::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit6c271f521b97f9a058e8edf82712defc::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit6c271f521b97f9a058e8edf82712defc::$fallbackDirsPsr0;
             $loader->classMap = ComposerStaticInit6c271f521b97f9a058e8edf82712defc::$classMap;
 
         }, null, ClassLoader::class);
