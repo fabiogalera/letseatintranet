@@ -54,8 +54,8 @@
                         $array = (array) $object;
                         setlocale(LC_TIME, 'pt_BR.utf8');
                         $ShortFormat = Carbon\Carbon::createFromTimestamp($array['time'])->formatLocalized('%a');
-                        if (++$i == 1) continue;
-                        if (++$i == 7) break;
+                        if ($i == 0) continue;
+                        if (++$i == 8) break;
                     ?>
                 <div class="col-sm-2">
                     <div class="daily-weather">
