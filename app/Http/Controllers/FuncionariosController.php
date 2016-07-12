@@ -21,15 +21,6 @@ class FuncionariosController extends Controller
     protected $redirectPath = '/';
     protected $loginPath = '/login';
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-        if (!Auth::check())
-        {
-            return redirect()->route('login');
-        }
-    }
-
     public function index()
     {
         //$funcionario = Funcionario::all();
