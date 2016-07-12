@@ -4,7 +4,8 @@ Route::get('/login', 'PagesController@login');
 
 Route::get('funcionarios/json', [
     'middleware' => ['auth', 'roles'],
-    array('as' => 'funcionarios.ajax', 'uses' => 'FuncionariosController@ajax'),
+    'as' => 'funcionarios.ajax',
+    'uses' => 'FuncionariosController@ajax',
     'roles' => ['administrator', 'manager']
 ]);
 
