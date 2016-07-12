@@ -14,8 +14,7 @@
         <br />
         <br />
         <br />
-        {{ $bag = Session::getMetadataBag() }}
-        {{ dd($bag) }}
+        {{ $bag = Session::getMetadataBag()->getLifetime() }}
         <h4> Inativo por {{ $bag }}</h4>
 
         <!-- sidebar menu -->
