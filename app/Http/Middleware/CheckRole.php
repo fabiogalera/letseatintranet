@@ -22,12 +22,7 @@ class CheckRole {
         {
             return $next($request);
         }
-        return response([
-            'error' => [
-                'code' => 'INSUFFICIENT_ROLE',
-                'description' => 'You are not authorized to access this resource.'
-            ]
-        ], 401);
+        return view();
     }
     private function getRequiredRoleForRoute($route)
     {
