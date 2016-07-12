@@ -24,6 +24,6 @@ class CarbonLanguageProvider extends ServiceProvider
      */
     public function register()
     {
-        Carbon::setLocale($this->app->getLocale());
+        Carbon::setLocale('pt_BR');
     }
 }
