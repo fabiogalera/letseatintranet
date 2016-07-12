@@ -76,7 +76,7 @@ class AuthController extends Controller
 
         if ($authUser->approved == 'Y') {
             Auth::login($authUser, true);
-            return redirect()->route('/');
+            return redirect('');
         } else {
             return 'Olá ' . $authUser->name . ', sua requisição de acesso foi enviada e aguarda aprovação.' ;
         }
