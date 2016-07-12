@@ -1,4 +1,7 @@
 <!-- start of weather widget -->
+
+{{ $currentlyTime = Carbon::createFromTimestamp($result->currently->time) }}
+
 <div class="x_title">
             <h2>Tempo <small>Valinhos</small></h2>
             <ul class="nav navbar-right panel_toolbox">
@@ -21,7 +24,7 @@
         <div class="x_content">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="temperature"><b>Segunda-Feira</b>, 07:30 AM
+                    <div class="temperature"><b>{{ var_dump($currentlyTime->dayOfWeek) }}Segunda-Feira</b>, 07:30 AM
                         <span></span>
                         <span><b></b></span>
                     </div>

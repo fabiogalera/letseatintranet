@@ -4,6 +4,7 @@ namespace App\Widgets;
 
 use Arrilot\Widgets\AbstractWidget;
 use GuzzleHttp\Client;
+use Carbon\Carbon;
 
 
 class Weather extends AbstractWidget
@@ -35,11 +36,9 @@ class Weather extends AbstractWidget
         $key = 'ae300dcfd8fa70066081dd0765e4fc69';
         $loc = '-22.9816458,-47.0126948';
 
-        $request = $client->get('https://api.forecast.io/forecast/'. $key . '/' . $loc . '/?lang=pt')->getBody();
+        $request = $client->get('https://api.forecast.io/forecast/'. $key . '/' . $loc . '/?lang=pt&units=ca')->getBody();
 
         $obj = json_decode($request);
-
-        dd($obj);
 
         return view("widgets.weather", ['config' => $this->config, 'result' => $obj]);
     }
