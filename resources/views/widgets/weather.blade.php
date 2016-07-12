@@ -22,7 +22,7 @@
         <div class="x_content">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="temperature">{{ $currentlyTime }}
+                    <div class="temperature"><h2>{{ $currentlyTime }}</h2>
                         <span></span>
                         <span><b></b></span>
                     </div>
@@ -48,14 +48,14 @@
 
             <div class="clearfix"></div>
             <div class="row weather-days">
-                <?php $i=0; ?>
-                    @foreach($result->daily->data as $object)
                 <?php
+                    $i=0;
+                    foreach($result->daily->data as $object) {
                         $array = (array) $object;
                         setlocale(LC_TIME, 'pt_BR.utf8');
                         $ShortFormat = Carbon\Carbon::createFromTimestamp($array['time'])->formatLocalized('%a');
-                        if ($i == 0) continue;
-                        if (++$i == 8) break;
+                        if (++$i == 1) continue;
+                        if ($i == 8) break;
                     ?>
                 <div class="col-sm-2">
                     <div class="daily-weather">
@@ -66,7 +66,7 @@
                     </div>
                 </div>
 
-              @endforeach
+               <?php } ?>
 
                 <div class="clearfix"></div>
             </div>
