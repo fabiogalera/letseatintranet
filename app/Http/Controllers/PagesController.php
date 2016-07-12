@@ -26,7 +26,7 @@ class PagesController extends Controller
     public function home () {
         if (is_null($loggedUser))
         {
-            return redirect()->route('/login');
+            return view('login');
         }
         return view('welcome');
     }
@@ -36,6 +36,7 @@ class PagesController extends Controller
         {
             return view('login');
         }
+
         return redirect()->route('/');
     }
 
