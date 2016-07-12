@@ -1,5 +1,6 @@
 <?php
 
+
 Route::group(['middleware' => ['web']], function () {
 
 
@@ -48,4 +49,4 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
 
-}
+});
