@@ -23,8 +23,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="temperature"><h2>{{ $currentlyTime }}</h2>
-                        <span>bb</span>
-                        <span><b>aa</b></span>
+                        <span></span>
+                        <span><b></b></span>
                     </div>
                 </div>
             </div>
