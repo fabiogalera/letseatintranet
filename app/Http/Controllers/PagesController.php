@@ -15,9 +15,12 @@ class PagesController extends Controller
     protected $redirectPath = '/';
     protected $loginPath = '/login';
 
+    protected $loggedUser;
+
     public function __construct()
     {
         $this->middleware('auth', ['except' => array('login', 'logoff')]);
+        $this->loggedUser = Auth::user();
         if (!Auth::check())
         {
             return redirect()->route('login');
@@ -29,7 +32,11 @@ class PagesController extends Controller
     }
 
     public function login () {
-        return view('auth.login');
+        if (!Auth::check())
+        {
+            return redirect()->route('login');
+        }
+        return redirect()->route('welcome');
     }
 
 }
