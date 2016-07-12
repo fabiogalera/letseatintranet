@@ -13,7 +13,7 @@
             <div class="profile_info">
                 <span>Bem vindo,</span>
                 <h2>{{ Auth::user()->name }}</h2>
-                <small>{{  Auth::user()->role()->getUserRole }}</small>
+               
             </div>
         </div>
         <!-- /menu profile quick info -->
