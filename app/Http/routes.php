@@ -1,9 +1,6 @@
 <?php
 
 
-
-Route::group(['middleware' => ['web']], function () {
-
     Route::get('funcionarios/json', [
         'middleware' => ['auth', 'roles'],
         'as' => 'funcionarios.ajax',
@@ -87,14 +84,13 @@ Route::group(['middleware' => ['web']], function () {
         'roles' => ['administrator', 'manager']
     ]);
 
-    Route::get('/', 'PagesController@home');
-    
     Route::get('/login', 'PagesController@login');
 
-    Route::get('/logoff', 'AuthController@logoff');
+    Route::get('/', 'PagesController@home');
+
+    Route::get('/logoff', 'Auth\AuthController@logoff');
 
     Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
 
     Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
 
-});
