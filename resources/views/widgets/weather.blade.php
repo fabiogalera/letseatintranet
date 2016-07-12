@@ -48,14 +48,19 @@
 
             <div class="clearfix"></div>
             <div class="row weather-days">
+                {{ $i=0 }}
                 @foreach($result->daily->data as $object)
                     {{!! $array = (array) $object }}
-                    {{!! $ShortFormat = Carbon\Carbon::createFromTimestamp($array['time'])->formatLocalized('%a') }}
+                    {{!! $ShortFormat = Carbon\Carbon::createFromTimestamp($array['time'])->setLocale('pt_BR')->formatLocalized('%a') }}
+
+                @if (++$i == 6)
+                    @break
+                @endif
 
                 <div class="col-sm-2">
                     <div class="daily-weather">
                         <h2 class="day">{{ $ShortFormat }}</h2>
-                        <h3 class="degrees">{{ $array['temperatureMax'] }}</h3>
+                        <h3 class="degrees">{{ floatval($array['temperatureMax']) }}</h3>
                         <canvas id="{{ $array['icon'] }}" width="32" height="32"></canvas>
                         <h5>{{ $array['windSpeed'] }} <i>km/h</i></h5>
                     </div>
