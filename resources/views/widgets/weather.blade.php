@@ -51,7 +51,8 @@
                 {{ $i=0 }}
                 @foreach($result->daily->data as $object)
                     {{!! $array = (array) $object }}
-                    {{!! $ShortFormat = Carbon\Carbon::createFromTimestamp($array['time'])->setLocale('pt_BR')->formatLocalized('%a') }}
+                    {{!!    Carbon\Carbon::setLocale('pt_BR') }}
+                    {{!!    $ShortFormat = Carbon\Carbon::createFromTimestamp($array['time'])->formatLocalized('%a')  }}
 
                 @if (++$i == 6)
                     @break
