@@ -22,8 +22,8 @@ class CheckRole {
         {
             return $next($request);
         }
-        flash('Você não tem permissões para acessar essa parte do sistema!!!', 'danger');
-        return view('error');
+        $parameters = ['message' => 'Você não tem permissões para acessar essa parte do sistema!!!', 'level' => 'danger'];
+        return redirect('error')->with($parameters);
     }
 
     private function getRequiredRoleForRoute($route)

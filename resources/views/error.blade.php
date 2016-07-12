@@ -5,11 +5,11 @@
 @endpush
 
 @section('main_container')
-    @if (session()->has('flash_notification.message'))
-        <div class="alert alert-{{ session('flash_notification.level') }}">
+    @if (session()->has('message'))
+        <div class="alert alert-{{ session('level') }}">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-            {{ session('flash_notification.message') }}
+            {{ session('message') }}
         </div>
     @endif
 @endsection
