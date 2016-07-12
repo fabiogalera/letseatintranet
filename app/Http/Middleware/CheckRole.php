@@ -22,7 +22,8 @@ class CheckRole {
         {
             return $next($request);
         }
-        return view('nopermitions');
+        flash('Message', 'danger')
+        return redirect('error');
     }
 
     private function getRequiredRoleForRoute($route)

@@ -86,6 +86,8 @@
 
     Route::get('/login', 'PagesController@login');
 
+    Route::get('/error', 'PagesController@login');
+
     Route::get('/', 'PagesController@home');
 
     Route::get('/logoff', 'Auth\AuthController@logoff');

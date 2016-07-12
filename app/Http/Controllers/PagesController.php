@@ -24,6 +24,10 @@ class PagesController extends Controller
         return view('welcome');
     }
 
+    public function error () {
+        return view('error');
+    }
+
     public function login () {
         if (Auth::check())
         {
