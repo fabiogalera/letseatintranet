@@ -35,9 +35,11 @@ class Weather extends AbstractWidget
         $key = 'ae300dcfd8fa70066081dd0765e4fc69';
         $loc = '-22.9816458,-47.0126948';
 
-        $res = $client->request('GET', 'https://api.forecast.io/forecast/'. $key . '/' . $loc);
+        $request = $client->request('GET', 'https://api.forecast.io/forecast/'. $key . '/' . $loc);
 
-        dd($res);
+        $response = $client->send($request, ['timeout' => 2]);
+
+        dd($response);
 
         return view("widgets.weather", ['config' => $this->config, 'result' => $res]);
     }

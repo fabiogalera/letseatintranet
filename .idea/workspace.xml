@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="25e48149-9fc9-42bc-9a3e-adf87c0eab9c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Widgets/Weather.php" afterPath="$PROJECT_DIR$/app/Widgets/Weather.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" />
     </list>
     <ignored path="project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +37,8 @@
       <file leaf-file-name="Weather.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Widgets/Weather.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+            <state relative-caret-position="697">
+              <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
               <folding>
                 <element signature="e#31#66#0#PHP" expanded="true" />
               </folding>
@@ -377,12 +376,12 @@
       <workItem from="1467676369943" duration="42228000" />
       <workItem from="1467790705901" duration="61045000" />
       <workItem from="1468263637746" duration="242000" />
-      <workItem from="1468264154762" duration="46586000" />
+      <workItem from="1468264154762" duration="47347000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164855000" />
+    <option name="totallyTimeSpent" value="165616000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -807,8 +806,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Widgets/Weather.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+        <state relative-caret-position="697">
+          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
           <folding>
             <element signature="e#31#66#0#PHP" expanded="true" />
           </folding>
