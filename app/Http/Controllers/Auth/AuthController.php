@@ -32,7 +32,7 @@ class AuthController extends Controller
     protected $redirectPath = '/';
     protected $loginPath = '/login';
 
-    
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -55,7 +55,7 @@ class AuthController extends Controller
     public function logoff()
     {
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('/login');
     }
 
     public function redirectToProvider(Request $request)
