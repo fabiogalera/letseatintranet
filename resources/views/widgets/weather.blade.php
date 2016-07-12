@@ -50,10 +50,11 @@
             <div class="row weather-days">
                 {{ $i = 0 }}
                 @foreach($result['daily'] as $i => $v)
-                {{
-                    if (++$i == 6) break;
-                    $ShortFormat = Carbon\Carbon::createFromTimestamp($v['time'])->formatLocalized('%a');
-                }}
+
+                    @if (++$i == 6)  {{ break }}
+                    @endif
+
+                    {{!! $ShortFormat = Carbon\Carbon::createFromTimestamp($v['time'])->formatLocalized('%a') }}
 
                 <div class="col-sm-2">
                     <div class="daily-weather">
