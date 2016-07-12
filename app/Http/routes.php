@@ -86,7 +86,7 @@
 
     Route::get('/login', 'PagesController@login');
 
-    Route::get('/error', 'PagesController@login');
+    Route::get('/error', 'PagesController@error');
 
     Route::get('/', 'PagesController@home');
 
