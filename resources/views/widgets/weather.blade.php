@@ -61,7 +61,7 @@
                     <div class="daily-weather">
                         <h2 class="day">{{ $ShortFormat }}</h2>
                         <h3 class="degrees">{{ $array['temperatureMax'] }}</h3>
-                        <canvas id="clear-day" width="32" height="32"></canvas>
+                        <canvas class="{{ $array['icon'] }}" width="32" height="32"></canvas>
                         <h5>{{ $array['windSpeed'] }} <i>km/h</i></h5>
                     </div>
                 </div>
