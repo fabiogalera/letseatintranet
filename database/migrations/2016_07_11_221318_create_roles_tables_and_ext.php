@@ -19,7 +19,7 @@ class CreateRolesTablesAndExt extends Migration
             $table->timestamps();
         });
 
-        Schema::table('funcionarios', function ($table) {
+        Schema::table('users', function ($table) {
             $table->integer('role_id')->default(0)->unsigned();
             $table->foreign('role_id')->references('id')->on('roles');
         });
