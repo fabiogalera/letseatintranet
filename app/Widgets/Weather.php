@@ -26,14 +26,6 @@ class Weather extends AbstractWidget
                     <span class=\"sr-only\">Loading...</span>";
     }
 
-    public function container()
-    {
-        return [
-            'element'       => 'div',
-            'attributes'    => 'class="arrilot-widget-container"',
-        ];
-    }
-
     public function run()
     {
         //
