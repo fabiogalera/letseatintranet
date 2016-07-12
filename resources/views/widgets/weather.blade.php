@@ -48,18 +48,14 @@
 
             <div class="clearfix"></div>
             <div class="row weather-days">
-                {{ $i = 0 }}
-                @foreach($result['daily'] as $i => $v)
-
-                    @if (++$i == 6)  {{ break }}
-                    @endif
+                @foreach($result->daily->data->slice(0, 5) as $v)
 
                     {{!! $ShortFormat = Carbon\Carbon::createFromTimestamp($v['time'])->formatLocalized('%a') }}
 
                 <div class="col-sm-2">
                     <div class="daily-weather">
                         <h2 class="day">{{ $ShortFormat }}</h2>
-                        <h3 class="degrees">{{ $v['temperature'] }}</h3>
+                        <h3 class="degrees">{{ $v['temperatureMax'] }}</h3>
                         <canvas id="{{ $v['icon'] }}" width="32" height="32"></canvas>
                         <h5>{{ $v['windSpeed'] }} <i>km/h</i></h5>
                     </div>
