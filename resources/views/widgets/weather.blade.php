@@ -48,9 +48,9 @@
 
             <div class="clearfix"></div>
             <div class="row weather-days">
-                <?php $i=0; ?>
-                @foreach($result->daily->data as $object)
-                    <?php
+                <?php
+                    $i=0;
+                    foreach($result->daily->data as $object) {
                         $array = (array) $object;
                         setlocale(LC_TIME, 'pt_BR.utf8');
                         $ShortFormat = Carbon\Carbon::createFromTimestamp($array['time'])->formatLocalized('%a');
@@ -66,7 +66,7 @@
                     </div>
                 </div>
 
-                @endforeach
+               <?php } ?>
 
                 <div class="clearfix"></div>
             </div>
