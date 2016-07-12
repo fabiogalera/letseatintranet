@@ -40,6 +40,18 @@ class Weather extends AbstractWidget
 
         $obj = json_decode($request);
 
-        return view("widgets.weather", ['config' => $this->config, 'result' => $obj]);
+        $currentlyTime = Carbon::createFromTimestamp($result->currently->time);
+
+        switch ($currentlyTime->dayOfWeek){
+            case 0: $titleday = "Domingo"; break;
+            case 1: $titleday = "Segunda-Feira"; break;
+            case 2: $titleday = "Terça-Feira"; break;
+            case 3: $titleday = "Quarta-Feira"; break;
+            case 4: $titleday = "Quinta-Feira"; break;
+            case 5: $titleday = "Sexta-Feira"; break;
+            case 6: $titleday = "Sábado"; break;
+        }
+
+        return view("widgets.weather", ['config' => $this->config, 'result' => $obj, 'currentlyTime' => $currentlyTime, 'titleday' => $titleday]);
     }
 }
