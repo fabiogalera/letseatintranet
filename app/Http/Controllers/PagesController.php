@@ -18,7 +18,7 @@ class PagesController extends Controller
     public function home () {
         if (!Auth::check())
         {
-            rreturn redirect('auth/login');
+            return redirect('auth/login');
         }
 
         return view('welcome');
