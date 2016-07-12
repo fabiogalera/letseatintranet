@@ -14,6 +14,10 @@
         <br />
         <br />
         <br />
+        {{ $bag = Session::getMetadataBag();
+        $max = Config::get('session.lifetime') * 60; }}
+
+        <h4> Inativo por {{ $bag }}</h4>
 
         <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
