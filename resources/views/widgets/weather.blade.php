@@ -22,7 +22,7 @@
         <div class="x_content">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="temperature"><b>{{ $titleday }}</b>, 07:30 AM
+                    <div class="temperature">{{ $currentlyTime }}
                         <span></span>
                         <span><b></b></span>
                     </div>
@@ -48,26 +48,16 @@
 
             <div class="clearfix"></div>
             <div class="row weather-days">
-                {{ $i = 0; }}
-            @foreach($result['daily'] as $i => $v)
-                {{
-                if (++$i == 6) break;
-                $TimeFormat = Carbon\Carbon::createFromTimestamp($v['time']);
-                 switch ($TimeFormat->dayOfWeek){
-                    case 0: $titleday2 = "Dom"; break;
-                    case 1: $titleday2 = "Seg"; break;
-                    case 2: $titleday2 = "Ter"; break;
-                    case 3: $titleday2 = "Qua"; break;
-                    case 4: $titleday2 = "Qui"; break;
-                    case 5: $titleday2 = "Sex"; break;
-                    case 6: $titleday2 = "Sáb"; break;
-                 }
-                 }}
+                {{ $i = 0
+                foreach($result['daily'] as $i => $v)
+                 if (++$i == 6) break;
+                $ShortFormat = Carbon\Carbon::createFromTimestamp($v['time'])->formatLocalized('%a');
+                }}
 
                 <div class="col-sm-2">
                     <div class="daily-weather">
-                        <h2 class="day">{{ $titleday2 }}</h2>
-                        <h3 class="degrees">{{ $TimeFormat->day }}</h3>
+                        <h2 class="day">{{ $ShortFormat }}</h2>
+                        <h3 class="degrees">{{ $v['temperature'] }}</h3>
                         <canvas id="{{ $v['icon'] }}" width="32" height="32"></canvas>
                         <h5>{{ $v['windSpeed'] }} <i>km/h</i></h5>
                     </div>

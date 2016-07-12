@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25e48149-9fc9-42bc-9a3e-adf87c0eab9c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Widgets/Weather.php" afterPath="$PROJECT_DIR$/app/Widgets/Weather.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/widgets/weather.blade.php" afterPath="$PROJECT_DIR$/resources/views/widgets/weather.blade.php" />
     </list>
@@ -38,8 +39,8 @@
       <file leaf-file-name="Weather.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Widgets/Weather.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <state relative-caret-position="410">
+              <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="117" />
               <folding>
                 <element signature="e#31#66#0#PHP" expanded="true" />
               </folding>
@@ -50,11 +51,10 @@
       <file leaf-file-name="weather.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/widgets/weather.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="330">
+              <caret line="61" column="66" selection-start-line="61" selection-start-column="66" selection-end-line="61" selection-end-column="66" />
               <folding>
-                <marker date="1468353633709" expanded="true" signature="2121:2730" placeholder="{...}" />
-                <marker date="1468353633709" expanded="true" signature="2306:2709" placeholder="..." />
+                <marker date="1468354353955" expanded="true" signature="2108:2249" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -380,12 +380,12 @@
       <workItem from="1467676369943" duration="42228000" />
       <workItem from="1467790705901" duration="61045000" />
       <workItem from="1468263637746" duration="242000" />
-      <workItem from="1468264154762" duration="51771000" />
+      <workItem from="1468264154762" duration="52507000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170040000" />
+    <option name="totallyTimeSpent" value="170776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -802,8 +802,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Widgets/Weather.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="410">
+          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="117" />
           <folding>
             <element signature="e#31#66#0#PHP" expanded="true" />
           </folding>
@@ -812,11 +812,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/widgets/weather.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="330">
+          <caret line="61" column="66" selection-start-line="61" selection-start-column="66" selection-end-line="61" selection-end-column="66" />
           <folding>
-            <marker date="1468353633709" expanded="true" signature="2121:2730" placeholder="{...}" />
-            <marker date="1468353633709" expanded="true" signature="2306:2709" placeholder="..." />
+            <marker date="1468354353955" expanded="true" signature="2108:2249" placeholder="{...}" />
           </folding>
         </state>
       </provider>

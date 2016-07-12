@@ -39,19 +39,9 @@ class Weather extends AbstractWidget
         $request = $client->get('https://api.forecast.io/forecast/'. $key . '/' . $loc . '/?lang=pt&units=ca')->getBody();
 
         $obj = json_decode($request);
+        setlocale(LC_TIME, 'Brazil');
+        $currentlyTime = Carbon::createFromTimestamp($obj->currently->time)->formatLocalized('%A, %d %B %Y - %H:%M');
 
-        $currentlyTime = Carbon::createFromTimestamp($result->currently->time);
-
-        switch ($currentlyTime->dayOfWeek){
-            case 0: $titleday = "Domingo"; break;
-            case 1: $titleday = "Segunda-Feira"; break;
-            case 2: $titleday = "Terça-Feira"; break;
-            case 3: $titleday = "Quarta-Feira"; break;
-            case 4: $titleday = "Quinta-Feira"; break;
-            case 5: $titleday = "Sexta-Feira"; break;
-            case 6: $titleday = "Sábado"; break;
-        }
-
-        return view("widgets.weather", ['config' => $this->config, 'result' => $obj, 'currentlyTime' => $currentlyTime, 'titleday' => $titleday]);
+        return view("widgets.weather", ['config' => $this->config, 'result' => $obj, 'currentlyTime' => $currentlyTime]);
     }
 }
