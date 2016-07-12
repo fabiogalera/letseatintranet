@@ -50,9 +50,9 @@
         <entry file="file://$PROJECT_DIR$/resources/views/widgets/weather.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="50" column="58" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
+              <caret line="50" column="63" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="63" />
               <folding>
-                <marker date="1468355325300" expanded="true" signature="2100:2211" placeholder="{...}" />
+                <marker date="1468355535916" expanded="true" signature="2099:2210" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -378,12 +378,12 @@
       <workItem from="1467676369943" duration="42228000" />
       <workItem from="1467790705901" duration="61045000" />
       <workItem from="1468263637746" duration="242000" />
-      <workItem from="1468264154762" duration="53446000" />
+      <workItem from="1468264154762" duration="53662000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171715000" />
+    <option name="totallyTimeSpent" value="171931000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -811,9 +811,9 @@
     <entry file="file://$PROJECT_DIR$/resources/views/widgets/weather.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="50" column="58" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
+          <caret line="50" column="63" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="63" />
           <folding>
-            <marker date="1468355325300" expanded="true" signature="2100:2211" placeholder="{...}" />
+            <marker date="1468355535916" expanded="true" signature="2099:2210" placeholder="{...}" />
           </folding>
         </state>
       </provider>
