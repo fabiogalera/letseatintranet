@@ -64,7 +64,8 @@ class FuncionariosController extends Controller
         $data['salario'] = floatval(str_replace(',', '.', str_replace('.', '', $request->salario)));
 
         $funcionarios->update($data);
-        return back();
+        $parameters = ['message' => 'Funcionário ' . $funcionarios.nome . ' ' . $funcionarios.sobrenome . ' editado com sucesso;' , 'level' => 'success'];
+        return redirect('funcionarios')->with($parameters);
     }
 
     public function Ajax()
