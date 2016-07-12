@@ -48,10 +48,11 @@
 
             <div class="clearfix"></div>
             <div class="row weather-days">
-                {{ $i = 0
-                foreach($result['daily'] as $i => $v)
-                 if (++$i == 6) break;
-                $ShortFormat = Carbon\Carbon::createFromTimestamp($v['time'])->formatLocalized('%a');
+                {{ $i = 0 }}
+                @foreach($result['daily'] as $i => $v)
+                {{
+                    if (++$i == 6) break;
+                    $ShortFormat = Carbon\Carbon::createFromTimestamp($v['time'])->formatLocalized('%a');
                 }}
 
                 <div class="col-sm-2">
