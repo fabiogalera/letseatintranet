@@ -428,6 +428,8 @@ class ComposerStaticInit6c271f521b97f9a058e8edf82712defc
         'Canvas_Factory' => __DIR__ . '/..' . '/dompdf/dompdf/include/canvas_factory.cls.php',
         'Cellmap' => __DIR__ . '/..' . '/dompdf/dompdf/include/cellmap.cls.php',
         'CreateFuncionarioTable' => __DIR__ . '/../..' . '/database/migrations/2016_07_04_205228_create_funcionario_table.php',
+        'CreateRolesTable' => __DIR__ . '/../..' . '/database/migrations/2016_07_11_205228_create_role_table.php',
+        'CreateRolesTablesAndExt' => __DIR__ . '/../..' . '/database/migrations/2016_07_11_221318_create_roles_tables_and_ext.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2016_07_11_185804_create_Users_table.php',
         'DOMPDF' => __DIR__ . '/..' . '/dompdf/dompdf/include/dompdf.cls.php',
         'DOMPDF_Exception' => __DIR__ . '/..' . '/dompdf/dompdf/include/dompdf_exception.cls.php',
