@@ -1,8 +1,10 @@
 <?php
 
-Route::get('/login', 'PagesController@login');
+
 
 Route::group(['middleware' => ['web']], function () {
+
+    Route::get('/login', 'PagesController@login');
 
     Route::get('funcionarios/json', [
         'middleware' => ['auth', 'roles'],
@@ -69,13 +71,7 @@ Route::group(['middleware' => ['web']], function () {
         'roles' => ['administrator']
     ]);
 
-
-
-    Route::get('/', [
-        'middleware' => ['auth', 'roles'],
-        'uses' => 'PagesController@home',
-        'roles' => ['administrator', 'manager', 'employee']
-    ]);
+    Route::get('/', 'PagesController@home');
 
     Route::get('/voucher', [
         'middleware' => ['auth', 'roles'],
