@@ -19,13 +19,12 @@ class PagesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => array('login', 'logoff')]);
+        $this->middleware('auth', ['except' => array('logoff')]);
         $this->loggedUser = Auth::user();
-        dd($this->loggedUser);
     }
 
     public function home () {
-        if (!Auth::check())
+        if (is_null($loggedUser))
         {
             return redirect()->route('/login');
         }
@@ -33,7 +32,7 @@ class PagesController extends Controller
     }
 
     public function login () {
-        if (!Auth::check())
+        if (is_null($loggedUser))
         {
             return view('login');
         }
