@@ -50,19 +50,13 @@
             <div class="row weather-days">
                 {{!! $i=0 !!}}
                 @foreach($result->daily->data as $object)
-                    
-                    <?php $array = (array) $object;
+                    <?php
+                        $array = (array) $object;
                         Carbon\Carbon::setLocale('pt_BR');
-                       $ShortFormat = Carbon\Carbon::createFromTimestamp($array['time'])->formatLocalized('%a'); ?>
-
-                @if (++$i == 1)
-                    @continue
-                @endif
-
-                @if (++$i == 8)
-                    @break
-                @endif
-
+                        $ShortFormat = Carbon\Carbon::createFromTimestamp($array['time'])->formatLocalized('%a');
+                        if (++$i == 1) continue;
+                        if (++$i == 8) break;
+                    ?>
                 <div class="col-sm-2">
                     <div class="daily-weather">
                         <h2 class="day">{{ $ShortFormat }}</h2>
