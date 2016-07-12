@@ -7,7 +7,7 @@
             <div class="profile_info">
                 <span>Bem vindo,</span>
                 <h2>{{ Auth::user()->name }}</h2>
-                <small>{{  dd(Auth::user()) }}</small>
+                <small></small>
             </div>
         </div>
         <!-- /menu profile quick info -->
@@ -23,19 +23,23 @@
                     <ul class="nav side-menu">
                         <li><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a>
                         </li>
-
+                        @if (in_array(Auth::user()->role_id, [1, 2]))
                         <li><a><i class="fa fa-user"></i> Funcionários <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
                                 <li><a href="/funcionarios">Listar Funcionários</a></li>
                                 <li><a href="/funcionarios/create">Adicionar Funcionário</a></li>
                             </ul>
                         </li>
+
                         <li><a><i class="fa fa-anchor"></i> Fornecedores <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
                                 <li><a href="/fornecedores">Listar Fornecedores</a></li>
                                 <li><a href="/fornecedores/create">Adicionar Fornecedores</a></li>
                             </ul>
                         </li>
+                        @endif
+
+                        @if (in_array(Auth::user()->role_id, [1]))
                         <li><a><i class="fa fa-money"></i> Financeiro <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
                                 <li><a href="/financeiro/plano">Plano Financeiro</a></li>
@@ -48,6 +52,7 @@
                                 <li><a href="/relatorios">Fornecedores</a></li>
                             </ul>
                         </li>
+                        @endif
                     </ul>
                 </div>
 
@@ -57,7 +62,9 @@
                         <ul class="nav side-menu">
                             <li><a href="/voucher"><i class="fa fa-tags"></i> Voucher</a></li>
                             <li><a href="/espera"><i class="fa fa-users"></i> Espera</a></li>
+                            @if (in_array(Auth::user()->role_id, [1, 2]))
                             <li><a href="/fechamento"><i class="fa fa-archive"></i> Fechamento</a></li>
+                            @endif
                         </ul>
                     </div>
 
