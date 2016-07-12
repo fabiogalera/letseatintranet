@@ -4,9 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "702efd7cff6321492263248189ede378",
-    "content-hash": "cc01efb8906394a511a909ccbdbf56f8",
+    "hash": "4db90173933d23d27d56049ba9a84948",
+    "content-hash": "f988598876d7d4290609e72654625c0c",
     "packages": [
+        {
+            "name": "arrilot/laravel-widgets",
+            "version": "3.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arrilot/laravel-widgets.git",
+                "reference": "596cad8762ba681a836e5256ec4b54a4ccfc10c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arrilot/laravel-widgets/zipball/596cad8762ba681a836e5256ec4b54a4ccfc10c4",
+                "reference": "596cad8762ba681a836e5256ec4b54a4ccfc10c4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": ">=5.1",
+                "illuminate/container": ">=5.1",
+                "illuminate/contracts": ">=5.1",
+                "illuminate/support": ">=5.1",
+                "illuminate/view": ">=5.1",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Arrilot\\Widgets\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nekrasov Ilya",
+                    "email": "nekrasov.ilya90@gmail.com"
+                }
+            ],
+            "description": "A powerful alternative to view composers. Asynchronous widgets, reloadable widgets, console generator, caching - everything you can think of.",
+            "homepage": "https://github.com/Arrilot/laravel-widgets",
+            "keywords": [
+                "ajax",
+                "laravel",
+                "widgets"
+            ],
+            "time": "2016-07-10 14:07:48"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "3.0.0",

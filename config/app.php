@@ -161,6 +161,7 @@ return [
         'Yajra\Datatables\DatatablesServiceProvider',
         Laravel\Socialite\SocialiteServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Arrilot\Widgets\ServiceProvider::class,
 
     ],
 
@@ -209,6 +210,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Input' => Illuminate\Support\Facades\Input::class,
+        'Widget'       => Arrilot\Widgets\Facade::class,
+        'AsyncWidget'  => Arrilot\Widgets\AsyncFacade::class,
 
     ],
 
