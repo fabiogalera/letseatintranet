@@ -47,7 +47,7 @@
                         </div>
 
                         <br />
-                        <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
+                        <a href="/auth/facebook" class="btn btn-block btn-social btn-lg btn-facebook">
                             <span class="fa fa-facebook"></span> Logar com Facebook
                         </a>
                         <br />
