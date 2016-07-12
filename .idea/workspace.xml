@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25e48149-9fc9-42bc-9a3e-adf87c0eab9c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/FuncionariosController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/FuncionariosController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/funcionario.blade.php" afterPath="$PROJECT_DIR$/resources/views/funcionario.blade.php" />
     </list>
     <ignored path="project.iws" />
@@ -34,13 +36,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="funcionario.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="funcionario.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/funcionario.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+            <state relative-caret-position="391">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="30" selection-end-column="38" />
               <folding>
-                <marker date="1468294853883" expanded="true" signature="2867:2885" placeholder="..." />
+                <marker date="1468294971130" expanded="true" signature="2866:2884" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -88,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FuncionariosController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FuncionariosController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FuncionariosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+            <state relative-caret-position="561">
+              <caret line="67" column="66" selection-start-line="67" selection-start-column="66" selection-end-line="67" selection-end-column="66" />
               <folding>
                 <element signature="e#41#69#0#PHP" expanded="true" />
               </folding>
@@ -187,8 +189,8 @@
         <option value="$PROJECT_DIR$/app/Http/Middleware/CheckRole.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/error.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FuncionariosController.php" />
         <option value="$PROJECT_DIR$/resources/views/funcionario.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FuncionariosController.php" />
       </list>
     </option>
   </component>
@@ -498,12 +500,12 @@
       <workItem from="1467676369943" duration="42228000" />
       <workItem from="1467790705901" duration="61045000" />
       <workItem from="1468263637746" duration="242000" />
-      <workItem from="1468264154762" duration="27673000" />
+      <workItem from="1468264154762" duration="27927000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145942000" />
+    <option name="totallyTimeSpent" value="146196000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -903,22 +905,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FuncionariosController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/funcionario.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+        <state relative-caret-position="391">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="30" selection-end-column="38" />
           <folding>
-            <element signature="e#41#69#0#PHP" expanded="true" />
+            <marker date="1468294971130" expanded="true" signature="2866:2884" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/funcionario.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FuncionariosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+        <state relative-caret-position="561">
+          <caret line="67" column="66" selection-start-line="67" selection-start-column="66" selection-end-line="67" selection-end-column="66" />
           <folding>
-            <marker date="1468294853883" expanded="true" signature="2867:2885" placeholder="..." />
+            <element signature="e#41#69#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
