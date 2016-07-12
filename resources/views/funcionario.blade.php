@@ -6,15 +6,7 @@
 
 @section('main_container')
  <!-- page content -->
-<div class="row">
-    @if (session()->has('message'))
-        <div class="alert alert-{{ session('level') }}">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-            {{ session('message') }}
-        </div>
-    @endif
-</div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="dashboard_graph x_panel">
@@ -24,6 +16,15 @@
                         </div>
                         <div class="pull-right">
                             <a href='/funcionarios/create' class="btn btn-primary"> <span class="glyphicon glyphicon-plus"></span> Adicionar </a>
+                        </div>
+                        <div class="row">
+                            @if (session()->has('message'))
+                                <div class="alert alert-{{ session('level') }}">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+                                    {{ session('message') }}
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <div class="x_content">
