@@ -34,17 +34,19 @@
         </div>
      </div>
     <div class="row form-group center-block">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-                @if (session()->has('message'))
-                    <div class="alert alert-{{ session('level') }}">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        {{ session('message') }}
-                    </div>
-                @endif
+        <div class="center-block" style="width: 450px;">
+
+            @if (session()->has('message'))
+                <div class="alert alert-{{ session('level') }}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+                    {{ session('message') }}
+                </div>
+            @endif
         </div>
     </div>
     <div class="row center-block form-group">
-        <div class="center-block" style="width: 250px;">
+        <div class="center-block" style="width: 300px;">
             <a href="/auth/facebook" class="btn btn-block btn-social btn-lg btn-facebook">
             <span class="fa fa-facebook"></span> Logar com Facebook
             </a>
@@ -60,5 +62,15 @@
 </section>
     </div>
 </form>
+
+<!-- jQuery -->
+<script src="{{ asset("vendors/jquery/dist/jquery.js") }}"></script>
+<!-- Bootstrap -->
+<script src="{{ asset("js/bootstrap.min.js") }}"></script>
+<!-- Custom Theme Scripts -->
+<script src="{{ asset("js/gentelella.min.js") }}"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="{{ asset("js/moment/moment.min.js") }}"></script>
+
 </body>
 </html>
