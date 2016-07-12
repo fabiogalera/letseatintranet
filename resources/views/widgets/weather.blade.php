@@ -48,8 +48,9 @@
 
             <div class="clearfix"></div>
             <div class="row weather-days">
-                @foreach($result->daily->data as $index => $v)
-                    {{!! $ShortFormat = Carbon\Carbon::createFromTimestamp($v['time'])->formatLocalized('%a') }}
+                @foreach($result->daily->data as $object)
+                    {{!! $array[] = $object->toArray() }}
+                    {{!! $ShortFormat = Carbon\Carbon::createFromTimestamp($array['time'])->formatLocalized('%a') }}
 
                 <div class="col-sm-2">
                     <div class="daily-weather">
