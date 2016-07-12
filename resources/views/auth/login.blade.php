@@ -25,25 +25,28 @@
     <a class="hiddenanchor" id="signup"></a>
     <a class="hiddenanchor" id="signin"></a>
 
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            @if (session()->has('message'))
-                <div class="alert alert-{{ session('level') }}">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-                    {{ session('message') }}
-                </div>
-            @endif
-        </div>
-    </div>
-    
     <div class="login_wrapper">
         <div class="animate form login_form">
             <section class="login_content center-block">
                 <form>
                     <div class="form-group center-block"><img src="{{ asset("images/logo-lets.png") }}" width="240" height="272"/></div>
                     <div style="width: 200px;" class="center-block">
-                        <br /><br />
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                @if (session()->has('message'))
+                                    <div class="alert alert-{{ session('level') }}">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+                                        {{ session('message') }}
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+
+                        <br />
                         <a href="/auth/facebook" class="btn btn-block btn-social btn-facebook">
                             <span class="fa fa-facebook"></span> Logar com Facebook
                         </a>
