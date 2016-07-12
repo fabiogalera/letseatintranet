@@ -37,10 +37,10 @@
       <file leaf-file-name="funcionario.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/funcionario.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+            <state relative-caret-position="527">
+              <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
               <folding>
-                <marker date="1468294813258" expanded="true" signature="2771:2789" placeholder="..." />
+                <marker date="1468294853883" expanded="true" signature="2867:2885" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -498,12 +498,12 @@
       <workItem from="1467676369943" duration="42228000" />
       <workItem from="1467790705901" duration="61045000" />
       <workItem from="1468263637746" duration="242000" />
-      <workItem from="1468264154762" duration="27592000" />
+      <workItem from="1468264154762" duration="27673000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145861000" />
+    <option name="totallyTimeSpent" value="145942000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -915,10 +915,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/funcionario.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+        <state relative-caret-position="527">
+          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
           <folding>
-            <marker date="1468294813258" expanded="true" signature="2771:2789" placeholder="..." />
+            <marker date="1468294853883" expanded="true" signature="2867:2885" placeholder="..." />
           </folding>
         </state>
       </provider>

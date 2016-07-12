@@ -18,18 +18,18 @@
                             <a href='/funcionarios/create' class="btn btn-primary"> <span class="glyphicon glyphicon-plus"></span> Adicionar </a>
                         </div>
                     </div>
-                    <div class="row">
-                        @if (session()->has('message'))
-                            <div class="alert alert-{{ session('level') }}">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-                                {{ session('message') }}
-                            </div>
-                        @endif
-                    </div>
                     <div class="x_content">
                         <div class="demo-container" style="height:250px">
                             <div id="placeholder3xx3" class="demo-placeholder" style="width: 100%; height:100%;">
+                                <div class="row">
+                                    @if (session()->has('message'))
+                                        <div class="alert alert-{{ session('level') }}">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+                                            {{ session('message') }}
+                                        </div>
+                                    @endif
+                                </div>
                                 <table id="users-table" class="table table-striped jambo_table   table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
