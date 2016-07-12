@@ -34,7 +34,7 @@ class PagesController extends Controller
         {
             return redirect()->route('/');
         }
-        return view('login');
+        return view('auth.login');
 
     }
 
