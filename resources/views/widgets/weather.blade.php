@@ -42,7 +42,7 @@
             </div>
             <div class="col-sm-12">
                 <div class="weather-text pull-right">
-                    <h3 class="degrees">{{ $result->currently->temperature }}</h3>
+                    <h1 class="degrees">{{ $result->currently->temperature }}</h1>
                 </div>
             </div>
 
@@ -60,8 +60,8 @@
                 <div class="col-sm-2">
                     <div class="daily-weather">
                         <h2 class="day">{{ $ShortFormat }}</h2>
-                        <h3 class="degrees">{{ floatval($array['temperatureMax']) }}</h3>
-                        <canvas id="{{ $array['icon'] }}" width="32" height="32"></canvas>
+                        <h3 class="degrees">{{ $array['temperatureMax'] }}</h3>
+                        <canvas id="clear-day" width="32" height="32"></canvas>
                         <h5>{{ $array['windSpeed'] }} <i>km/h</i></h5>
                     </div>
                 </div>
