@@ -38,4 +38,14 @@ class PagesController extends Controller
 
     }
 
+    public function voucher () {
+        if (!Auth::check())
+        {
+            return redirect('login');
+        }
+
+        return view('voucher');
+
+    }
+
 }
