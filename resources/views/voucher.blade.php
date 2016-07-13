@@ -26,7 +26,34 @@
                                 </div>
                             @endif
                         </div>
+                        
+                        <form accept-charset="UTF-8" action="javascript:void(0);" class="new_voucher" id="new_voucher" method="post">
 
+                            <div class="form-group">
+                                <label for="voucher_name">Nome</label><br>
+                                <input class="form-control" id="voucher_name" name="nome" type="text" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="voucher_items">Items</label><br>
+                                <input class="form-control" id="voucher_items" name="lista" type="text" required />
+                            </div>
+                            <div class="form-group">
+                                <input class="btn btn-primary voucher-add" name="commit" type="submit" value="Salvar" />
+                            </div>
+                        </form>
+
+                        <form role="search" id="search-product-form" >
+                            <div class="input-group col-md-3 pull-left margin-right-1em">
+
+                                <input type="hidden" name="p" value="vouchers">
+                                <input type="text" class="form-control" placeholder="Nome e Sobrenome" name="s" id="srch-term" value="<?php echo "$search_term" ?>"/>
+                                <div class="input-group-btn">
+                                    <button class="btn btn-primary" id="btn-search-product" type="submit">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
 
                     </div>
                 </div>
