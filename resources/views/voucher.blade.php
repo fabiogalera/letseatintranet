@@ -26,7 +26,7 @@
                                 </div>
                             @endif
                         </div>
-                        
+
                         <form accept-charset="UTF-8" action="javascript:void(0);" class="new_voucher" id="new_voucher" method="post">
 
                             <div class="form-group">
@@ -45,8 +45,7 @@
                         <form role="search" id="search-product-form" >
                             <div class="input-group col-md-3 pull-left margin-right-1em">
 
-                                <input type="hidden" name="p" value="vouchers">
-                                <input type="text" class="form-control" placeholder="Nome e Sobrenome" name="s" id="srch-term" value="<?php echo "$search_term" ?>"/>
+                                <input type="text" class="form-control" placeholder="Nome e Sobrenome" name="s" id="srch-term" value=""/>
                                 <div class="input-group-btn">
                                     <button class="btn btn-primary" id="btn-search-product" type="submit">
                                         <i class="glyphicon glyphicon-search"></i>
