@@ -58,7 +58,7 @@
                         if ($i == 8) break;
                     ?>
                 <div class="col-sm-2">
-                    <div class="daily-weather">
+                    <div class="daily-weather w_center">
                         <h2 class="day">{{ $ShortFormat }}</h2>
                         <h3 class="degrees">{{ intval($array['temperatureMax']) }}</h3>
                         <canvas class="{{ $array['icon'] }}" width="32" height="32"></canvas>
