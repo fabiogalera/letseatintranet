@@ -29,16 +29,16 @@
 
                         <form accept-charset="UTF-8" action="javascript:void(0);" class="new_voucher" id="new_voucher" method="post">
 
-                            <div class="form-group">
+                            <div class="form-group col-md-5 col-sm-5 col-xs-5">
                                 <label for="voucher_name">Nome</label><br>
                                 <input class="form-control" id="voucher_name" name="nome" type="text" required />
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-5 col-sm-5 col-xs-5">
                                 <label for="voucher_items">Items</label><br>
                                 <input class="form-control" id="voucher_items" name="lista" type="text" required />
                             </div>
                             <div class="form-group">
-                                <input class="btn btn-primary voucher-add" name="commit" type="submit" value="Salvar" />
+                                <input class="btn btn-primary voucher-add" name="commit" type="submit" value="Adicionar" />
                             </div>
                         </form>
 
