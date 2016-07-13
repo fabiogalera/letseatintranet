@@ -29,18 +29,18 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="weather-icon">
                         <canvas height="84" width="84" class="{{ $result->currently->icon }}"></canvas>
                     </div>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-7">
                     <div class="weather-text">
                         <h2>Valinhos <br><i>{{ $result->currently->summary }}</i></h2>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-2">
                 <div class="weather-text pull-right">
                     <h1 class="degrees">{{ intval($result->currently->temperature) }}</h1>
                 </div>
