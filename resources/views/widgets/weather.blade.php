@@ -39,13 +39,13 @@
                         <h2>Valinhos <br><i>{{ $result->currently->summary }}</i></h2>
                     </div>
                 </div>
-            </div>
+
             <div class="col-sm-2">
                 <div class="weather-text pull-right">
                     <h1 class="degrees">{{ intval($result->currently->temperature) }}</h1>
                 </div>
             </div>
-
+            </div>
             <div class="clearfix"></div>
             <div class="row weather-days">
                 <?php
