@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="weather-icon">
-                        <canvas height="84" width="84" id="{{ $result->currently->icon }}"></canvas>
+                        <canvas height="84" width="84" class="{{ $result->currently->icon }}"></canvas>
                     </div>
                 </div>
                 <div class="col-sm-8">
