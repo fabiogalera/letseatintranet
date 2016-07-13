@@ -712,8 +712,13 @@
                 ],
                 i;
 
-        for (i = list.length; i--;)
-            icons.set(list[i], list[i]);
+        for(i = list.length; i--; ) {
+            var weatherType = list[i],
+                    elements = document.getElementsByClassName( weatherType );
+            for (e = elements.length; e--;){
+                icons.set( elements[e], weatherType );
+            }
+        }
 
         icons.play();
     });
