@@ -154,9 +154,7 @@
         var Leitor = true;
         var totalBoleto = 0 ;
         var options2 = { style: "currency", currency: "BRL" };
-        var boletosNum = [];
-        var boletosVenc = [];
-        var boletosValor = [];
+        var cobranca = [];
 
         if(Leitor){
             var barcode="";
@@ -172,7 +170,7 @@
                         alert("Código de Barra não suportado");
                     }
                     if (numero.length == 44) {
-                        Boleto(numero);
+                        var barra = new Barra(numero);
                     }
                     if (numero.length > 45) {
                         alert ('Nota Fiscal: ' + numero)
@@ -185,152 +183,179 @@
             });
         }
 
-    function AdicionaCobranca(convertido, vencimento, valor){
-        var boleto = "";
-        boleto += "<tr>";
-        boleto += "<th>" + convertido + "</th>";
-        boleto += "<th>" + vencimento + "</th>";
-        boleto += "<th>" + valor.toLocaleString("pt-BR", options2) + "</th>";
+    function AdicionaCobranca(obj){
+        var html = "<tr>";
+        html += "<th>" + convertido + "</th>";
+        html += "<th>" + vencimento + "</th>";
+        html += "<th>" + valor.toLocaleString("pt-BR", options2) + "</th>";
         //boleto += "<th><input class='form-control' id='vencimento' name='vencimento' type='text' required size='10' value='"+vencimento+"' /></th>";
         //boleto += "<th><input class='form-control' id='valor' name='valor' type='text' required size='10' value='"+valor+"' /></th>";
-        boleto += "<th class='buttons'><a href='javascript:void(0)' class='btn btn-xs btn-danger delete-voucher'><span class='glyphicon glyphicon-remove'></span></a></th>";
-        boleto += "</tr>";
-        $(boleto).hide().appendTo(tabBoleto).fadeIn("slow");
-
+        html += "<th class='buttons'><a href='javascript:void(0)' class='btn btn-xs btn-danger delete-voucher'><span class='glyphicon glyphicon-remove'></span></a></th>";
+        html += "</tr>";
+        $(html).hide().appendTo(tabBoleto).fadeIn("slow");
     }
 
-     function Boleto(numero){
-        var convertido = calcula_linha(numero);
-        var vencimento = fator_vencimento(numero.substr(5,4));
-        var valor      = parseFloat((numero.substr(9,8)*1)+'.'+numero.substr(17,2));
-        if(jQuery.inArray(convertido, boletosNum) !== -1) {
-            alert("Boleto ja adicionado otário");
-        } else {
-            boletosNum.push(convertido);
-            boletosVenc.push(vencimento);
-            boletosValor.push(valor);
-            totalBoleto = totalBoleto + valor;
-            AdicionaCobranca(convertido,vencimento,valor);
-            if ( numero.substr(5,4) == 0 ) {
-                alert('O boleto pode ser pago em qualquer data');
-            }
+     function Barra(codigo) {
+         this.barra = codigo;
+         this.length = codigo.length;
+         this.type = barra_type(codigo);
 
-        }
-        $("#total_boletos").html(totalBoleto.toLocaleString("pt-BR", options2));
-    }
+         function barra_type(codigo) {
+             console.log(codigo);
+             if (codigo.length == 44) {
+                 if (modulo11_banco(codigo.substr(0, 4) + codigo.substr(5, 99)) == codigo.substr(4, 1)) {
+                     console.log('Boleto');
+                     return 1; // boleto
+                 } else if (verifica_chave(codigo) == codigo[43] && codigo.substr(20, 2) == "55") {
+                     return 2;
+                 } else if (codigo.substr(1, 3) == "826") {
+                     return 4;
+                 } else if (codigo.substr(1, 4) == "836") {
+                     return 5;
+                 } else {
+                     return 0;
+                 }
+             }
+         }
+
+             switch (this.type) {
+                 case 0:
+                     break;
+                 case 1:
+                     console.log('Boleto');
+                     this.formatado = calcula_linha(codigo);
+                     this.vencimento = fator_vencimento(codigo.substr(5, 4));
+                     console.log(this.vencimento);
+                     this.valor = parseFloat((this.barra.substr(9, 8) * 1) + '.' + this.barra.substr(17, 2));
+                     break;
+                 case 2:
+                     console.log('Chave de Acesso');
+                     this.formatado = calcula_linha(this.barra);
+                     this.cnpj = fator_vencimento(this.barra.substr(5, 4));
+                     this.idNota = parseFloat((this.barra.substr(9, 8) * 1) + '.' + this.barra.substr(17, 2));
+                     break;
+                 case 3:
+                     console.log('Outro de 44 !!!');
+                     this.formatado = calcula_linha(this.barra);
+                     this.vencimento = fator_vencimento(this.barra.substr(5, 4));
+                     this.valor = parseFloat((this.barra.substr(9, 8) * 1) + '.' + this.barra.substr(17, 2));
+                     break;
+             }
+
+             function verifica_chave(chave) {
+                 var multiplicadores = [2, 3, 4, 5, 6, 7, 8, 9];
+                 var digito;
+                 var soma_ponderada = 0;
+                 var i = 42;
+                 while (i >= 0) {
+                     for (m = 0; m < multiplicadores.length && i >= 0; m++) {
+                         soma_ponderada += chave[i] * multiplicadores[m];
+                         i--;
+                     }
+                 }
+                 resto = soma_ponderada % 11;
+                 if (resto == '0' || resto == '1') {
+                     digito = 0;
+                 } else {
+                     digito = (11 - resto);
+                 }
+                 return digito;
+             }
+
+
+             function fator_vencimento(dias) {
+                 var currentDate, t, d, mes;
+                 t = new Date();
+                 currentDate = new Date();
+                 currentDate.setFullYear(1997, 9, 7);
+                 console.log(dias);
+                 console.log(currentDate);
+                 t.setTime(currentDate.getTime() + (1000 * 60 * 60 * 24 * dias));
+                 console.log(currentDate.getTime());
+                 console.log(t.toLocaleString("pt-BR"));
+                 mes = (currentDate.getMonth() + 1);
+                 if (mes < 10) mes = "0" + mes;
+                 dia = (currentDate.getDate() + 1);
+                 if (dia < 10) dia = "0" + dia;
+                 return (t.toLocaleDateString("pt-BR"));
+             }
+
+             function modulo11_banco(numero) {
+                 numero = numero.replace(/[^0-9]/g, '');
+                 var soma = 0;
+                 var peso = 2;
+                 var base = 9;
+                 var resto = 0;
+                 var contador = numero.length - 1;
+                 for (var i = contador; i >= 0; i--) {
+                     soma = soma + ( numero.substring(i, i + 1) * peso);
+                     if (peso < base) {
+                         peso++;
+                     } else {
+                         peso = 2;
+                     }
+                 }
+                 var digito = 11 - (soma % 11);
+                 if (digito > 9) digito = 0;
+                 if (digito == 0) digito = 1;
+                 return digito;
+             }
+
+             function modulo10(numero) {
+                 numero = numero.replace(/[^0-9]/g, '');
+                 var soma = 0;
+                 var peso = 2;
+                 var contador = numero.length - 1;
+                 while (contador >= 0) {
+                     multiplicacao = ( numero.substr(contador, 1) * peso );
+                     if (multiplicacao >= 10) {
+                         multiplicacao = 1 + (multiplicacao - 10);
+                     }
+                     soma = soma + multiplicacao;
+                     if (peso == 2) {
+                         peso = 1;
+                     } else {
+                         peso = 2;
+                     }
+                     contador = contador - 1;
+                 }
+                 var digito = 10 - (soma % 10);
+                 if (digito == 10) digito = 0;
+                 return digito;
+             }
+
+             function calcula_linha(barra) {
+                 linha = barra.replace(/[^0-9]/g, '');
+                 if (modulo10('399903512') != 8) return false;
+                 var campo1 = linha.substr(0, 4) + linha.substr(19, 1) + '.' + linha.substr(20, 4);
+                 var campo2 = linha.substr(24, 5) + '.' + linha.substr(24 + 5, 5);
+                 var campo3 = linha.substr(34, 5) + '.' + linha.substr(34 + 5, 5);
+                 var campo4 = linha.substr(4, 1);		// Digito verificador
+                 var campo5 = linha.substr(5, 14);	// Vencimento + Valor
+                 if (campo5 == 0) campo5 = '000';
+                 linha = campo1 + modulo10(campo1)
+                         + ' '
+                         + campo2 + modulo10(campo2)
+                         + ' '
+                         + campo3 + modulo10(campo3)
+                         + ' '
+                         + campo4
+                         + ' '
+                         + campo5
+                 ;
+                 //if (form.linha.value != form.linha2.value) alert('Linhas diferentes');
+                 return (linha);
+             }
+         }
 
     });
 
-    function fator_vencimento (dias) {
-        //Fator contado a partir da data base 07/10/1997
-        //*** Ex: 04/07/2000 fator igual a = 1001
-        //alert(dias);
-        var currentDate, t, d, mes;
-        t = new Date();
-        currentDate = new Date();
-        currentDate.setFullYear(1997,9,7);//alert(currentDate.toLocaleString());
-        t.setTime(currentDate.getTime() + (1000 * 60 * 60 * 24 * dias));//alert(t.toLocaleString());
-        mes = (currentDate.getMonth()+1); if (mes < 10) mes = "0" + mes;
-        dia = (currentDate.getDate()+1); if (dia < 10) dia = "0" + dia;
-        //campo.value = dia +"."+mes+"."+currentDate.getFullYear();campo.select();campo.focus();
-        return(t.toLocaleDateString("pt-BR"));
-    }
 
 
-    function modulo11_banco(numero)
-    {
 
-        numero = numero.replace(/[^0-9]/g,'');
-        //debug('Barra: '+numero);
-        var soma  = 0;
-        var peso  = 2;
-        var base  = 9;
-        var resto = 0;
-        var contador = numero.length - 1;
-        //debug('tamanho:'+contador);
-        // var numero = "12345678909";
-        for (var i=contador; i >= 0; i--) {
-            //alert( peso );
-            soma = soma + ( numero.substring(i,i+1) * peso);
-            //debug( i+': '+numero.substring(i,i+1) + ' * ' + peso + ' = ' +( numero.substring(i,i+1) * peso)+' soma='+ soma);
-            if (peso < base) {
-                peso++;
-            } else {
-                peso = 2;
-            }
-        }
-        var digito = 11 - (soma % 11);
-        //debug( '11 - ('+soma +'%11='+(soma % 11)+') = '+digito);
-        if (digito >  9) digito = 0;
-        /* Utilizar o dígito 1(um) sempre que o resultado do cálculo padrão for igual a 0(zero), 1(um) ou 10(dez). */
-        if (digito == 0) digito = 1;
-        return digito;
-    }
 
-    function modulo10(numero)
-    {
-        numero = numero.replace(/[^0-9]/g,'');
-        var soma  = 0;
-        var peso  = 2;
-        var contador = numero.length-1;
-        //alert(contador);
-        //numero = '00183222173';
-        //for (var i=0; i <= contador - 1; i++) {
-        //alert(10);
-        //for (contador=10; contador >= 10 - 1; contador--) {
-        while (contador >= 0) {
-            //alert(contador);
-            //alert(numero.substr(contador,1));
-            multiplicacao = ( numero.substr(contador,1) * peso );
-            if (multiplicacao >= 10) {multiplicacao = 1 + (multiplicacao-10);}
-            soma = soma + multiplicacao;
-            //alert(numero.substr(contador,1)+' * '+peso+' = '+multiplicacao + ' =>' + soma) ;
-            //alert(soma);
-            if (peso == 2) {
-                peso = 1;
-            } else {
-                peso = 2;
-            }
-            contador = contador - 1;
-        }
-        var digito = 10 - (soma % 10);
-        //alert(numero + '\n10 - (' + soma + ' % 10) = ' + digito);
-        if (digito == 10) digito = 0;
-        return digito;
-    }
 
-    function calcula_linha(barra)
-    {
-        //var barra = form.barra.value;	// Codigo da Barra
-        linha = barra.replace(/[^0-9]/g,'');
-        //
-        if (modulo10('399903512') != 8) alert('Função "modulo10" está com erro!');
-        if (linha.length != 44) alert ('A linha do código de barras está incompleta!');
-        //
-        var campo1 = linha.substr(0,4)+linha.substr(19,1)+'.'+linha.substr(20,4);
-        var campo2 = linha.substr(24,5)+'.'+linha.substr(24+5,5);
-        var campo3 = linha.substr(34,5)+'.'+linha.substr(34+5,5);
-        var campo4 = linha.substr(4,1);		// Digito verificador
-        var campo5 = linha.substr(5,14);	// Vencimento + Valor
-        //
-        if (  modulo11_banco(  linha.substr(0,4)+linha.substr(5,99)  ) != campo4 )
-            alert('Digito verificador '+campo4+', o correto é '+modulo11_banco(  linha.substr(0,4)+linha.substr(5,99)  )+'\nO sistema não altera automaticamente o dígito correto na quinta casa!');
-        //
-        if (campo5 == 0) campo5 = '000';
-        //
-        linha =	 campo1 + modulo10(campo1)
-                +' '
-                +campo2 + modulo10(campo2)
-                +' '
-                +campo3 + modulo10(campo3)
-                +' '
-                +campo4
-                +' '
-                +campo5
-        ;
-        //if (form.linha.value != form.linha2.value) alert('Linhas diferentes');
-        return(linha);
-    }
+
 
 
 </script>

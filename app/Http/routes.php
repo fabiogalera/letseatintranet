@@ -136,6 +136,8 @@
         'roles' => ['administrator', 'manager']
     ]);
 
+    Route::get('/codigobarra', 'BarraController@index');
+
     Route::get('/login', 'PagesController@login');
 
     Route::get('/error', 'PagesController@error');
