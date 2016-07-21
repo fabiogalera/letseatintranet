@@ -42,7 +42,7 @@ return [
     'facebook' => [
         'client_id' => '362352493888460',
         'client_secret' => 'fb5fb79eadd2f930c85cd1a108f3ddbb',
-        'redirect' => 'http://letseatslave.herokuapp.com/auth/facebook/callback',
+        'redirect' => 'http://dev.intranet.letseatvalinhos.com.br/auth/facebook/callback',
     ],
 
 ];

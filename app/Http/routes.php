@@ -1,14 +1,51 @@
 <?php
 
 
+    Route::get("/franqueado/{franqueado}", [
+        'middleware' => ['auth', 'roles'],
+        'uses' => 'FranqueadoController@SetFranqueado',
+        'as' => 'franqueado.setfranqueado',
+        'roles' => ['administrator', 'manager']
+    ]);
+
+// VOUCHER
+
+    Route::get("/voucher_audit/{voucher}", [
+        'middleware' => ['auth', 'roles'],
+        'uses' => 'VoucherController@listaudit',
+        'as' => 'voucher_audit.listaudit',
+        'roles' => ['administrator', 'manager']
+    ]);
+
+    Route::post("/voucher", [
+        'middleware' => ['auth', 'roles'],
+        'uses' => 'VoucherController@store',
+        'as' => 'voucher.store',
+        'roles' => ['administrator', 'manager']
+    ]);
+
+    Route::post("/voucher/{voucher}", [
+        'middleware' => ['auth', 'roles'],
+        'uses' => 'VoucherController@update',
+        'as' => 'voucher.update',
+        'roles' => ['administrator', 'manager']
+    ]);
+
+    Route::post("/voucher/{voucher}/delete", [
+        'middleware' => ['auth', 'roles'],
+        'uses' => 'VoucherController@delete',
+        'as' => 'voucher.delete',
+        'roles' => ['administrator', 'manager']
+    ]);
+
+// FUNCIONARIOS
+
     Route::get('funcionarios/json', [
         'middleware' => ['auth', 'roles'],
         'as' => 'funcionarios.ajax',
         'uses' => 'FuncionariosController@ajax',
         'roles' => ['administrator', 'manager']
     ]);
-
-    // FUNCIONARIOS
 
     Route::get("/funcionarios", [
         'middleware' => ['auth', 'roles'],
@@ -68,7 +105,7 @@
 
     Route::get('/voucher', [
         'middleware' => ['auth', 'roles'],
-        'uses' => 'PagesController@voucher',
+        'uses' => 'VoucherController@index',
         'roles' => ['administrator', 'manager', 'employee']
     ]);
 
@@ -80,7 +117,22 @@
 
     Route::get('/fechamento', [
         'middleware' => ['auth', 'roles'],
-        'uses' => 'PagesController@espera',
+        'uses' => 'FechamentoController@index',
+        'roles' => ['administrator', 'manager']
+    ]);
+
+// COBRANCA
+
+    Route::get('/cobranca', [
+        'middleware' => ['auth', 'roles'],
+        'uses' => 'CobrancaController@index',
+        'roles' => ['administrator', 'manager']
+    ]);
+
+    Route::get("/cobranca/create", [
+        'middleware' => ['auth', 'roles'],
+        'uses' => 'CobrancaController@create',
+        'as' => 'cobranca.create',
         'roles' => ['administrator', 'manager']
     ]);
 

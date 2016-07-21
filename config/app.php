@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://letseatslave.herokuapp.com'),
+    'url' => env('APP_URL', 'http://dev.intranet.letseatvalinhos.com.br'),
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'pt',
+    'locale' => 'pt_BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'pt',
+    'fallback_locale' => 'pt_BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -158,6 +158,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\ViewComposerServiceProvider::class,
         'App\Providers\CarbonLanguageProvider',
         'Yajra\Datatables\DatatablesServiceProvider',
         Laravel\Socialite\SocialiteServiceProvider::class,
@@ -217,3 +218,4 @@ return [
     ],
 
 ];
+

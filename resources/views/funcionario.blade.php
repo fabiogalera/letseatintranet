@@ -12,7 +12,7 @@
                 <div class="dashboard_graph x_panel">
                     <div class="row x_title">
                         <div class="col-md-6">
-                            <h3>Funcionários <small></small></h3>
+                            <h3>Funcionários <small>{{session('franqueado')[0]->identificador}}</small></h3>
                         </div>
                         <div class="pull-right">
                             <a href='/funcionarios/create' class="btn btn-primary"> <span class="glyphicon glyphicon-plus"></span> Adicionar </a>

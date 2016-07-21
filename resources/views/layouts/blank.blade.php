@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=2">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Let's Eat - Intranet </title>
 
@@ -45,6 +46,8 @@
 <div class="container body">
     <div class="main_container">
 
+        @stack('modal')
+
         @include('includes/sidebar')
 
         @include('includes/topbar')
@@ -71,8 +74,6 @@
 <!-- DataTables -->
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs/jszip-2.5.0/pdfmake-0.1.18/dt-1.10.12/b-1.2.1/b-colvis-1.2.1/b-html5-1.2.1/b-print-1.2.1/datatables.min.js"></script>
 <script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.12/dataRender/datetime.js"></script>
-<script type="text/javascript" src="http://www.oemautomatic.se/jquery/jquery.wipcore.js"></script>
-
 <!-- Custom Theme Scripts -->
 <script src="{{ asset("js/gentelella.min.js") }}"></script>
 <!-- bootstrap-daterangepicker -->

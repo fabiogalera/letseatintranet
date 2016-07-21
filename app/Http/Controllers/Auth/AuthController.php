@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\PagesController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use Socialite;
 use Auth;
 use App\User;
 use Validator;
+Use App\Franqueado;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -42,16 +41,6 @@ class AuthController extends Controller
         ]);
     }
 
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
-
-
     public function logoff()
     {
         Auth::logout();
@@ -75,6 +64,9 @@ class AuthController extends Controller
         $authUser = $this->findOrCreateUser($user);
 
         if ($authUser->approved == 'Y') {
+            $franqueado = new Franqueado;
+            $franqueado = $franqueado->BindFranqueado($authUser->default_franquia);
+            $request->session()->put('franqueado', $franqueado);
             Auth::login($authUser, true);
             return redirect('');
         } else {

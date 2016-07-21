@@ -1,7 +1,7 @@
 <!-- start of weather widget -->
 
 <div class="x_title">
-            <h2>Tempo <small>Valinhos</small></h2>
+            <h2>Tempo <small>{{$identificador}}</small></h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-sm-7">
                     <div class="weather-text">
-                        <h2>Valinhos <br><i>{{ $result->currently->summary }}</i></h2>
+                        <h2>{{$identificador}} <br><i>{{ $result->currently->summary }}</i></h2>
                     </div>
                 </div>
 

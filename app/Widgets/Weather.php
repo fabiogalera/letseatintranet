@@ -34,15 +34,15 @@ class Weather extends AbstractWidget
         $client = new Client();
 
         $key = 'ae300dcfd8fa70066081dd0765e4fc69';
-        $loc = '-22.9816458,-47.0126948';
+        $franqueado = session()->get('franqueado')[0];
+        $loc = $franqueado->weather_loc;
+        $request2 = $client->get('https://api.forecast.io/forecast/'. $key . '/' . $loc . '/?lang=pt&units=ca')->getBody();
 
-        $request = $client->get('https://api.forecast.io/forecast/'. $key . '/' . $loc . '/?lang=pt&units=ca')->getBody();
-
-        $obj = json_decode($request);
+        $obj = json_decode($request2);
 
         setlocale(LC_TIME, 'pt_BR.utf8');
         $currentlyTime = Carbon::createFromTimestamp($obj->currently->time)->formatLocalized('%A, %d %B %Y - %H:%M');
 
-        return view("widgets.weather", ['config' => $this->config, 'result' => $obj, 'currentlyTime' => $currentlyTime]);
+        return view("widgets.weather", ['config' => $this->config, 'result' => $obj, 'currentlyTime' => $currentlyTime, 'identificador' => $franqueado->identificador]);
     }
 }

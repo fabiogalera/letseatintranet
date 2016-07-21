@@ -8,7 +8,7 @@ use Auth;
 
 use App\Http\Requests;
 
-class PagesController extends Controller
+class PagesController extends ForaController
 {
 
     protected $redirectTo = '/';
@@ -35,16 +35,6 @@ class PagesController extends Controller
         }
 
         return view('auth.login');
-
-    }
-
-    public function voucher () {
-        if (!Auth::check())
-        {
-            return redirect('login');
-        }
-
-        return view('voucher');
 
     }
 

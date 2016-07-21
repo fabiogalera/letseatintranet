@@ -62,8 +62,8 @@ $('input.money-bank').on('keydown',function(e){
         return;
     }
 
-    var a = ["a","b","c","d","e","f","g","h","i","`"];
-    var n = ["1","2","3","4","5","6","7","8","9","0"];
+    var a = ["a","b","c","d","e","f","g","h","i","`","1","2","3","4","5","6","7","8","9","0"];
+    var n = ["1","2","3","4","5","6","7","8","9","0","1","2","3","4","5","6","7","8","9","0"];
 
     var value = $(this).val();
     var clean = value.replace(/\./g,'').replace(/,/g,'').replace(/^0+/, '');
@@ -94,91 +94,124 @@ $('input.money-bank').on('keydown',function(e){
 
 });
 
+// Declaracao Master
+var options2 = { style: "currency", currency: "BRL" };
 
-function recalculateSum()
+var TotalMaquina = {"getnet1": 0, "getnet2": 0, "getnet3": 0,"getnet4": 0, "cielo": 0, "dinheiro": 0, "cortesia": 0};
+var TotalBand = {"masterdeb": 0, "mastercred": 0, "visadeb": 0, "visacred": 0, "elodeb": 0, "elocred": 0, "amex": 0, "sodexo": 0, "ticket": 0, "alelo": 0, "dinners": 0};
+var TotalGetNet = 0;
+var TotalVendas = 0;
+var TotalCielo = 0;
+
+function CalculaTotal () {
+    TotalVendas = 0;
+    TotalGetNet = 0;
+
+    $("[id$=_total]").each(function(){
+        var valor = parseFloat($(this).val().substring(2).replace(/\./g, '').replace(',', '.')) || 0;
+        TotalGetNet = TotalGetNet + valor;
+        });
+
+    $("#getnet").val(parseFloat(TotalGetNet).toLocaleString("pt-BR", options2));
+    $('#cielo').val(parseFloat(TotalCielo).toLocaleString("pt-BR", options2));
+
+    TotalBand.dinheiro = parseFloat($('#dinheiro').val().replace(/\./g, '').replace(',', '.')) || 0;
+    TotalBand.cortesia = parseFloat($('#cortesia').val().replace(/\./g, '').replace(',', '.')) || 0;
+
+    TotalVendas = TotalGetNet + TotalCielo + TotalBand.dinheiro + TotalBand.cortesia;
+
+    $("#total").html(parseFloat(TotalVendas).toLocaleString("pt-BR", options2));
+
+    Conferencia();
+}
+
+function SomarTotalCielo ()
 {
-    var options2 = { style: "currency", currency: "BRL" };
+    TotalCielo = 0;
+    TotalBand.alelo = parseFloat($("#alelo").val().replace(/\./g, '').replace(',', '.')) || 0;
+    TotalBand.dinners = parseFloat($("#dinners").val().replace(/\./g, '').replace(',', '.')) || 0;
+    TotalCielo = TotalBand.alelo + TotalBand.dinners;
+    CalculaTotal();
+}
 
-    var cielo_alelo = parseFloat(document.getElementById("cielo_alelo").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var cielo_dinners = parseFloat(document.getElementById("cielo_dinners").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var cielo_elodeb = parseFloat(document.getElementById("cielo_elodeb").value.replace(/\./g, '').replace(',', '.')) || 0;
-    // master
-    var getnet1_masterdeb = parseFloat(document.getElementById("getnet1_masterdeb").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet2_masterdeb = parseFloat(document.getElementById("getnet2_masterdeb").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet3_masterdeb = parseFloat(document.getElementById("getnet3_masterdeb").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet4_masterdeb = parseFloat(document.getElementById("getnet4_masterdeb").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet1_mastercred = parseFloat(document.getElementById("getnet1_mastercred").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet2_mastercred = parseFloat(document.getElementById("getnet2_mastercred").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet3_mastercred = parseFloat(document.getElementById("getnet3_mastercred").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet4_mastercred = parseFloat(document.getElementById("getnet4_mastercred").value.replace(/\./g, '').replace(',', '.')) || 0;
-    // visa
-    var getnet1_visadeb = parseFloat(document.getElementById("getnet1_visadeb").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet2_visadeb = parseFloat(document.getElementById("getnet2_visadeb").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet3_visadeb = parseFloat(document.getElementById("getnet3_visadeb").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet4_visadeb = parseFloat(document.getElementById("getnet4_visadeb").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet1_visacred = parseFloat(document.getElementById("getnet1_visacred").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet2_visacred = parseFloat(document.getElementById("getnet2_visacred").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet3_visacred = parseFloat(document.getElementById("getnet3_visacred").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet4_visacred = parseFloat(document.getElementById("getnet4_visacred").value.replace(/\./g, '').replace(',', '.')) || 0;
-    // Elo
-    var getnet1_elodeb = parseFloat(document.getElementById("getnet1_elodeb").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet2_elodeb = parseFloat(document.getElementById("getnet2_elodeb").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet3_elodeb = parseFloat(document.getElementById("getnet3_elodeb").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet4_elodeb = parseFloat(document.getElementById("getnet4_elodeb").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet1_elocred = parseFloat(document.getElementById("getnet1_elocred").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet2_elocred = parseFloat(document.getElementById("getnet2_elocred").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet3_elocred = parseFloat(document.getElementById("getnet3_elocred").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet4_elocred = parseFloat(document.getElementById("getnet4_elocred").value.replace(/\./g, '').replace(',', '.')) || 0;
-    // sodexo
-    var getnet1_sodexo = parseFloat(document.getElementById("getnet1_sodexo").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet2_sodexo = parseFloat(document.getElementById("getnet2_sodexo").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet3_sodexo = parseFloat(document.getElementById("getnet3_sodexo").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet4_sodexo = parseFloat(document.getElementById("getnet4_sodexo").value.replace(/\./g, '').replace(',', '.')) || 0;
-    // amex
-    var getnet1_amex = parseFloat(document.getElementById("getnet1_amex").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet2_amex = parseFloat(document.getElementById("getnet2_amex").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet3_amex = parseFloat(document.getElementById("getnet3_amex").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet4_amex = parseFloat(document.getElementById("getnet4_amex").value.replace(/\./g, '').replace(',', '.')) || 0;
-    // ticket
-    var getnet1_ticket = parseFloat(document.getElementById("getnet1_ticket").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet2_ticket = parseFloat(document.getElementById("getnet2_ticket").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet3_ticket = parseFloat(document.getElementById("getnet3_ticket").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet4_ticket = parseFloat(document.getElementById("getnet4_ticket").value.replace(/\./g, '').replace(',', '.')) || 0;
+function SomarTotal (arg,A)
+{
+    arg = arg.split("_");
+    maquina = arg[0];
+    band = arg[1];
+
+    TotalMaquina[maquina] = 0;
+    TotalBand[band] = 0;
+
+    $("[id^="+ maquina +"_]").each(function(){
+        var valor = parseFloat($(this).val().replace(/\./g, '').replace(',', '.')) || 0;
+        TotalMaquina[maquina] = parseFloat(TotalMaquina[maquina]) + valor;
+    });
+
+    $("[id$=_"+ band +"]").each(function(){
+        var valor = parseFloat($(this).val().replace(/\./g, '').replace(',', '.')) || 0;
+        TotalBand[band] = parseFloat(TotalBand[band]) + valor;
+    });
+
+    // Set os valores nos campos
+    $('#'+maquina).val(parseFloat(TotalMaquina[maquina]).toLocaleString("pt-BR", options2));
+    $('#'+band+'_total').val(parseFloat(TotalBand[band]).toLocaleString("pt-BR", options2));
+
+    CalculaTotal();
+}
 
 
-    document.getElementById("getnet_masterdeb").value = (getnet1_masterdeb + getnet2_masterdeb + getnet3_masterdeb + getnet4_masterdeb).toLocaleString("pt-BR", options2);
-    document.getElementById("getnet_mastercred").value = (getnet1_mastercred + getnet2_mastercred + getnet3_mastercred + getnet4_mastercred).toLocaleString("pt-BR", options2);
-    document.getElementById("getnet_visadeb").value = (getnet1_visadeb + getnet2_visadeb + getnet3_visadeb + getnet4_visadeb).toLocaleString("pt-BR", options2);
-    document.getElementById("getnet_visacred").value = (getnet1_visacred + getnet2_visacred + getnet3_visacred + getnet4_visacred).toLocaleString("pt-BR", options2);
-    document.getElementById("getnet_elodeb").value = (getnet1_elodeb + getnet2_elodeb + getnet3_elodeb + getnet4_elodeb).toLocaleString("pt-BR", options2);
-    document.getElementById("getnet_elocred").value = (getnet1_elocred + getnet2_elocred + getnet3_elocred + getnet4_elocred).toLocaleString("pt-BR", options2);
-    document.getElementById("getnet_sodexo").value = (getnet1_sodexo + getnet2_sodexo + getnet3_sodexo + getnet4_sodexo).toLocaleString("pt-BR", options2);
-    document.getElementById("getnet_amex").value = (getnet1_amex + getnet2_amex + getnet3_amex + getnet4_amex).toLocaleString("pt-BR", options2);
-    document.getElementById("getnet_ticket").value = (getnet1_ticket + getnet2_ticket + getnet3_ticket + getnet4_ticket).toLocaleString("pt-BR", options2);
+function Conferencia ()
+{
+    var ctrl_f = "<table class='table table-sm'>";
 
-    var getnet_masterdeb = parseFloat(document.getElementById("getnet_masterdeb").value.substring(2).replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet_mastercred = parseFloat(document.getElementById("getnet_mastercred").value.substring(2).replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet_visadeb = parseFloat(document.getElementById("getnet_visadeb").value.substring(2).replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet_visacred = parseFloat(document.getElementById("getnet_visacred").value.substring(2).replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet_elodeb = parseFloat(document.getElementById("getnet_elodeb").value.substring(2).replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet_elocred = parseFloat(document.getElementById("getnet_elocred").value.substring(2).replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet_ticket = parseFloat(document.getElementById("getnet_ticket").value.substring(2).replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet_sodexo = parseFloat(document.getElementById("getnet_sodexo").value.substring(2).replace(/\./g, '').replace(',', '.')) || 0;
-    var getnet_amex = parseFloat(document.getElementById("getnet_amex").value.substring(2).replace(/\./g, '').replace(',', '.')) || 0;
+    if (TotalBand.alelo > 0 ) { ctrl_f = ctrl_f + "<tr><td>ALELO</td><td>" + TotalBand.alelo.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
+    if (TotalBand.amex > 0 ) { ctrl_f = ctrl_f + "<tr><td>AMERICAN EXPRESS</th><th>" + TotalBand.amex.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
+    if (TotalBand.cortesia > 0 ) { ctrl_f = ctrl_f + "<tr><td>CORTESIA</th><th>" + TotalBand.cortesia.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
+    if (TotalBand.dinheiro > 0 ) { ctrl_f = ctrl_f + "<tr><td>DINHEIRO</th><th>" + TotalBand.dinheiro.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
+    if (TotalBand.dinners > 0 ) { ctrl_f = ctrl_f + "<tr><td>DINNERS</th><th>" + TotalBand.dinners.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
+    if (TotalBand.elocred > 0 ) { ctrl_f = ctrl_f + "<tr><td>ELO CRÉDITO</th><th>" + TotalBand.elocred.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
+    if (TotalBand.elodeb > 0 ) { ctrl_f = ctrl_f + "<tr><td>ELO DÉBITO</th><th>" + TotalBand.elodeb.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
+    if (TotalBand.masterdeb > 0 ) { ctrl_f = ctrl_f + "<tr><td>MAESTRO</th><th>" + TotalBand.masterdeb.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
+    if (TotalBand.mastercred > 0 ) { ctrl_f = ctrl_f + "<tr><td>MASTERCARD</th><th>" + TotalBand.mastercred.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
+    if (TotalBand.sodexo > 0 ) { ctrl_f = ctrl_f + "<tr><td>SODEXO</th><th>" + TotalBand.sodexo.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
+    if (TotalBand.ticket > 0 ) { ctrl_f = ctrl_f + "<tr><td>TICKET RESTAURANTE</th><th>" + TotalBand.ticket.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
+    if (TotalBand.visacred > 0 ) { ctrl_f = ctrl_f + "<tr><td>VISA CRÉDITO</th><th>" + TotalBand.visacred.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
+    if (TotalBand.visadeb > 0 ) { ctrl_f = ctrl_f + "<tr><td>VISA ELECTRON</th><th>" + TotalBand.visadeb.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
 
-    document.getElementById("cielo").value = (cielo_alelo + cielo_dinners + cielo_elodeb).toLocaleString("pt-BR", options2);
-    document.getElementById("getnet1").value = (getnet1_masterdeb+getnet1_mastercred+getnet1_visadeb+getnet1_visacred+getnet1_elodeb+getnet1_elocred+getnet1_sodexo+getnet1_amex+getnet1_ticket).toLocaleString("pt-BR", options2);
-    document.getElementById("getnet2").value = (getnet2_masterdeb+getnet2_mastercred+getnet2_visadeb+getnet2_visacred+getnet2_elodeb+getnet2_elocred+getnet2_sodexo+getnet2_amex+getnet2_ticket).toLocaleString("pt-BR", options2);
-    document.getElementById("getnet3").value = (getnet3_masterdeb+getnet3_mastercred+getnet3_visadeb+getnet3_visacred+getnet3_elodeb+getnet3_elocred+getnet3_sodexo+getnet3_amex+getnet3_ticket).toLocaleString("pt-BR", options2);
-    document.getElementById("getnet4").value = (getnet4_masterdeb+getnet4_mastercred+getnet4_visadeb+getnet4_visacred+getnet4_elodeb+getnet4_elocred+getnet4_sodexo+getnet4_amex+getnet4_ticket).toLocaleString("pt-BR", options2);
-    document.getElementById("getnet").value = (getnet_masterdeb+getnet_mastercred+getnet_visadeb+getnet_visacred+getnet_elodeb+getnet_elocred+getnet_sodexo+getnet_amex+getnet_ticket).toLocaleString("pt-BR", options2);
+    if (TotalVendas > 0 ) { ctrl_f = ctrl_f + "<tr><td>TOTAL</th><th><b>" + parseFloat(TotalVendas).toLocaleString("pt-BR", options2).substring(2) + "</b></td></tr></table> <div class='right-align'><a class='btn btn-large btn-success' href='#'><i class='fa fa-check-square-o' aria-hidden='true'></i> CONFERIDO !! </a></div>"; }
 
-    var getnet = parseFloat(document.getElementById("getnet").value.substring(2).replace(/\./g, '').replace(',', '.')) || 0;
-    var cielo = parseFloat(document.getElementById("cielo").value.substring(2).replace(/\./g, '').replace(',', '.')) || 0;
-    var dinheiro = parseFloat(document.getElementById("dinheiro").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var cortesia = parseFloat(document.getElementById("cortesia").value.replace(/\./g, '').replace(',', '.')) || 0;
-    document.getElementById("total").innerHTML = (getnet + cielo + dinheiro + cortesia).toLocaleString("pt-BR", options2);
+    document.getElementById("div_f").innerHTML = ctrl_f;
 
+    $("table_f").html(ctrl_f);
+
+    var dinheiro_contado = parseFloat(document.getElementById("dinheiro_contado").value.substring(2).replace(/\./g, '').replace(',', '.')) || 0;
+    var troco = parseFloat(document.getElementById("troco").value.replace(/\./g, '').replace(',', '.')) || 0;
+    var gastos = parseFloat(document.getElementById("gastos").value.replace(/\./g, '').replace(',', '.')) || 0;
+
+    var conferencia = ((dinheiro_contado+gastos)-(troco+TotalBand.dinheiro));
+
+    var conf = document.getElementById("trconf");
+
+    if(conferencia < 0){
+        conf.className = "danger";
+    }
+    else {
+        conf.className = "success";
+    }
+
+    if(conferencia == 0){ conf.className = "active"; }
+
+    document.getElementById("div_troco").innerHTML =  troco.toLocaleString("pt-BR", options2);
+    document.getElementById("div_vendas").innerHTML =  TotalBand.dinheiro.toLocaleString("pt-BR", options2);
+    document.getElementById("div_gastos").innerHTML =  gastos.toLocaleString("pt-BR", options2);
+    document.getElementById("div_conf").innerHTML =  conferencia.toLocaleString("pt-BR", options2);
+    document.getElementById("div_dinheiro_contado").innerHTML =  dinheiro_contado.toLocaleString("pt-BR", options2);
+
+}
+
+function CalculaDinheiro()
+{
     var nota_100 = parseFloat(document.getElementById("nota_100").value.replace(/\./g, '').replace(',', '.')) || 0;
     var nota_50 = parseFloat(document.getElementById("nota_50").value.replace(/\./g, '').replace(',', '.')) || 0;
     var nota_20 = parseFloat(document.getElementById("nota_20").value.replace(/\./g, '').replace(',', '.')) || 0;
@@ -190,7 +223,6 @@ function recalculateSum()
     var nota_025 = parseFloat(document.getElementById("nota_025").value.replace(/\./g, '').replace(',', '.')) || 0;
     var nota_010 = parseFloat(document.getElementById("nota_010").value.replace(/\./g, '').replace(',', '.')) || 0;
     var nota_005 = parseFloat(document.getElementById("nota_005").value.replace(/\./g, '').replace(',', '.')) || 0;
-
 
     document.getElementById("total_100").value = (nota_100 * 100).toLocaleString("pt-BR", options2);
     document.getElementById("total_50").value = (nota_50 * 50).toLocaleString("pt-BR", options2);
@@ -218,59 +250,11 @@ function recalculateSum()
 
     document.getElementById("dinheiro_contado").value = (total_100+total_50+total_20+total_10+total_5+total_2+total_1+total_050+total_025+total_010+total_005).toLocaleString("pt-BR", options2);
 
-    var ctrl_f = "<table class='table table-sm'>";
-
-    var elodeb = getnet_elodeb+cielo_elodeb;
-
-    if (cielo_alelo > 0 ) { ctrl_f = ctrl_f + "<tr><td>ALELO</td><td>" + cielo_alelo.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
-    if (getnet_amex > 0 ) { ctrl_f = ctrl_f + "<tr><td>AMERICAN EXPRESS</th><th>" + getnet_amex.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
-    if (cortesia > 0 ) { ctrl_f = ctrl_f + "<tr><td>CORTESIA</th><th>" + cortesia.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
-    if (dinheiro > 0 ) { ctrl_f = ctrl_f + "<tr><td>DINHEIRO</th><th>" + dinheiro.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
-    if (cielo_dinners > 0 ) { ctrl_f = ctrl_f + "<tr><td>DINNERS</th><th>" + cielo_dinners.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
-    if (getnet_elocred > 0 ) { ctrl_f = ctrl_f + "<tr><td>ELO CRÉDITO</th><th>" + getnet_elocred.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
-    if (elodeb > 0 ) { ctrl_f = ctrl_f + "<tr><td>ELO DÉBITO</th><th>" + elodeb.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
-    if (getnet_masterdeb > 0 ) { ctrl_f = ctrl_f + "<tr><td>MAESTRO</th><th>" + getnet_masterdeb.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
-    if (getnet_mastercred > 0 ) { ctrl_f = ctrl_f + "<tr><td>MASTERCARD</th><th>" + getnet_mastercred.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
-    if (getnet_sodexo > 0 ) { ctrl_f = ctrl_f + "<tr><td>SODEXO</th><th>" + getnet_sodexo.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
-    if (getnet_ticket > 0 ) { ctrl_f = ctrl_f + "<tr><td>TICKET RESTAURANTE</th><th>" + getnet_ticket.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
-    if (getnet_visacred > 0 ) { ctrl_f = ctrl_f + "<tr><td>VISA CRÉDITO</th><th>" + getnet_visacred.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
-    if (getnet_visadeb > 0 ) { ctrl_f = ctrl_f + "<tr><td>VISA ELECTRON</th><th>" + getnet_visadeb.toLocaleString("pt-BR", options2).substring(2) + "</td></tr>"; }
-
-    var total_tudo = document.getElementById("total").innerHTML.substring(2);
-    var total_tudo2 = document.getElementById("total").innerHTML.substring(2).replace(/\./g, '').replace(',', '.') || 0;
-
-    if (total_tudo2 > 0 ) { ctrl_f = ctrl_f + "<tr><td>TOTAL</th><th>" + total_tudo + "</td></tr></table> <div class='right-align'><a class='btn btn-large btn-success' href='#'><i class='fa fa-check-square-o' aria-hidden='true'></i> CONFERIDO !! </a></div>"; }
-
-    document.getElementById("div_f").innerHTML = ctrl_f;
-
-    $("table_f").html(ctrl_f);
 }
 
 function recalculateSum2()
 {
-    var options2 = { style: "currency", currency: "BRL" };
-    var dinheiro_contado = parseFloat(document.getElementById("dinheiro_contado").value.substring(2).replace(/\./g, '').replace(',', '.')) || 0;
-    var troco = parseFloat(document.getElementById("troco").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var gastos = parseFloat(document.getElementById("gastos").value.replace(/\./g, '').replace(',', '.')) || 0;
-    var dinheiro = parseFloat(document.getElementById("dinheiro").value.replace(/\./g, '').replace(',', '.')) || 0;
 
-    var conferencia = ((dinheiro_contado+gastos)-(troco+dinheiro));
-
-    var conf = document.getElementById("trconf");
-
-    if(conferencia < 0){
-        conf.className = "danger";
-    }
-    else {
-        conf.className = "success";
-    }
-    if(conferencia == 0){ conf.className = "active"; }
-
-    document.getElementById("div_troco").innerHTML =  troco.toLocaleString("pt-BR", options2);
-    document.getElementById("div_vendas").innerHTML =  dinheiro.toLocaleString("pt-BR", options2);
-    document.getElementById("div_gastos").innerHTML =  gastos.toLocaleString("pt-BR", options2);
-    document.getElementById("div_conf").innerHTML =  conferencia.toLocaleString("pt-BR", options2);
-    document.getElementById("div_dinheiro_contado").innerHTML =  dinheiro_contado.toLocaleString("pt-BR", options2);
 
 }
 
