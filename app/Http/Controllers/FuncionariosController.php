@@ -73,6 +73,15 @@ class FuncionariosController extends ForaController
         return redirect('funcionarios')->with($parameters);
     }
 
+    public function destroy(Funcionario $funcionarios)
+    {
+        $nome = $funcionarios->nome;
+        $sobrenome = $funcionarios->sobrenome;
+        $funcionarios->delete($funcionarios->id);
+        $parameters = ['message' => $nome . ' ' . $sobrenome . ' removido com sucesso;' , 'level' => 'success'];
+        return redirect('funcionarios')->with($parameters);
+    }
+
     public function Ajax()
     {
         $funcionarios = Funcionario::select(['*'])->where('site_id', session()->get('franqueado')[0]->id);
@@ -80,7 +89,7 @@ class FuncionariosController extends ForaController
         return Datatables::of($funcionarios)
             ->addColumn('edit', function ($funcionario) {
                 return '<a href="/funcionarios/'.$funcionario->id.'/edit" class="btn btn-xs btn-default" title="Editar"><i class="fa fa-edit"></i></a>
-                        <a href="/funcionarios/'.$funcionario->id.'/delete" class="btn btn-xs btn-danger" title="Remover"><i class="fa fa-remove"></i></a>
+                        <a href="/funcionarios/'.$funcionario->id.'/delete" onClick="return confirm(\'Deseja realmente remover o funcionário ' .  $funcionario->nome . ' ?\')" class="btn btn-xs btn-danger" title="Remover"><i class="fa fa-remove"></i></a>
                 ';
             })
             ->make(true);

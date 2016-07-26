@@ -214,6 +214,7 @@ return [
         'Input' => Illuminate\Support\Facades\Input::class,
         'Widget'       => Arrilot\Widgets\Facade::class,
         'AsyncWidget'  => Arrilot\Widgets\AsyncFacade::class,
+        'NFePHPSerialize' => JansenFelipe\NFePHPSerialize\NFePHPSerialize::class,
 
     ],
 

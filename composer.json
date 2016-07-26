@@ -17,7 +17,8 @@
         "laracasts/flash": "^2.0",
         "arrilot/laravel-widgets": "^3.5",
         "vertigolabs/overcast": "^1.0",
-        "guhelski/forecast-php": "^1.1"
+        "guhelski/forecast-php": "^1.1",
+        "khill/lavacharts": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

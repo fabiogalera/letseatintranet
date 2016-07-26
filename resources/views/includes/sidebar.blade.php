@@ -23,28 +23,28 @@
                         <li><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a>
                         </li>
                         @if (in_array(Auth::user()->role_id, [1, 2]))
-                        <li><a><i class="fa fa-user"></i> Funcionários <span class="fa fa-chevron-down"></span><span class="label label-default">90%</span></a>
+                        <li><a><i class="fa fa-user"></i> Funcionários <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
-                                <li><a href="/funcionarios">Listar Funcionários <span class="label label-default">90%</span></a></li>
+                                <li><a href="/funcionarios">Listar Funcionários <span class="label label-success">100%</span></a></li>
                                 <li><a href="/funcionarios/create">Adicionar Funcionário <span class="label label-success">100%</span></a></li>
                             </ul>
                         </li>
 
-                        <li><a><i class="fa fa-anchor"></i> Fornecedores <span class="label label-danger">0%</span> <span class="fa fa-chevron-down"></span></a>
+                        <li><a><i class="fa fa-anchor"></i> Fornecedores <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
-                                <li><a href="/fornecedores">Listar Fornecedores</a></li>
-                                <li><a href="/fornecedores/create">Adicionar Fornecedores</a></li>
+                                <li><a href="/fornecedores">Listar Fornecedores <span class="label label-success">100%</span></a></li>
+                                <li><a href="/fornecedores/create">Adicionar Fornecedores <span class="label label-success">100%</span></a></li>
                             </ul>
 
                         </li>
                         @endif
 
                         @if (in_array(Auth::user()->role_id, [1]))
-                        <li><a><i class="fa fa-money"></i> Financeiro <span class="label label-danger">0%</span><span class="fa fa-chevron-down"></span> </a>
+                        <li><a><i class="fa fa-money"></i> Financeiro <span class="fa fa-chevron-down"></span> </a>
                             <ul class="nav child_menu">
-                                <li><a href="/financeiro/plano">Plano Financeiro</a></li>
-                                <li><a href="/cobranca">Cobrancas</a></li>
-                                <li><a href="/cobranca/create">Adicionar Cobranca</a></li>
+                                <li><a href="/financeiro/plano">Plano Financeiro <span class="label label-danger">0%</span></a></li>
+                                <li><a href="/cobranca">Cobrancas <span class="label label-default">45%</span></a></li>
+                                <li><a href="/cobranca/create">Adicionar Cobranca <span class="label label-default">30%</span></a></li>
                             </ul>
                         </li>
                         <li><a><i class="fa fa-bar-chart-o"></i> Relatórios <span class="label label-danger">0%</span><span class="fa fa-chevron-down"></span></a>

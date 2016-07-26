@@ -37,6 +37,7 @@ return array(
     'League\\Fractal\\' => array($vendorDir . '/league/fractal/src'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
     'Laravel\\Socialite\\' => array($vendorDir . '/laravel/socialite/src'),
+    'Khill\\Lavacharts\\' => array($vendorDir . '/khill/lavacharts/src'),
     'JansenFelipe\\NFePHPSerialize\\' => array($vendorDir . '/jansenfelipe/nfephp-serialize/src'),
     'Illuminate\\Html\\' => array($vendorDir . '/illuminate/html'),
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),

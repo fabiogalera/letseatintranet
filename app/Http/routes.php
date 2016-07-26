@@ -10,6 +10,12 @@
 
 // VOUCHER
 
+    Route::get('/voucher', [
+        'middleware' => ['auth', 'roles'],
+        'uses' => 'VoucherController@index',
+        'roles' => ['administrator', 'manager', 'employee']
+    ]);
+
     Route::get("/voucher_audit/{voucher}", [
         'middleware' => ['auth', 'roles'],
         'uses' => 'VoucherController@listaudit',
@@ -96,18 +102,82 @@
         'roles' => ['administrator']
     ]);
 
-    Route::delete("/funcionarios/{funcionarios}", [
+    Route::get("/funcionarios/{funcionarios}/delete", [
         'middleware' => ['auth', 'roles'],
         'uses' => 'FuncionariosController@destroy',
         'as' => 'funcionarios.destroy',
         'roles' => ['administrator']
     ]);
 
-    Route::get('/voucher', [
-        'middleware' => ['auth', 'roles'],
-        'uses' => 'VoucherController@index',
-        'roles' => ['administrator', 'manager', 'employee']
-    ]);
+
+// FORNECEDORES
+
+Route::get('fornecedores/json', [
+    'middleware' => ['auth', 'roles'],
+    'as' => 'fornecedores.ajax',
+    'uses' => 'FornecedoresController@ajax',
+    'roles' => ['administrator', 'manager']
+]);
+
+Route::get("/fornecedores", [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'FornecedoresController@index',
+    'as' => 'fornecedores.index',
+    'roles' => ['administrator', 'manager']
+]);
+
+Route::get("/fornecedores/create", [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'FornecedoresController@create',
+    'as' => 'fornecedores.create',
+    'roles' => ['administrator', 'manager']
+]);
+
+Route::post("/fornecedores", [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'FornecedoresController@store',
+    'as' => 'fornecedor.store',
+    'roles' => ['administrator', 'manager']
+]);
+
+Route::get("/fornecedores/{fornecedores}", [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'FornecedoresController@show',
+    'as' => 'fornecedores.show',
+    'roles' => ['administrator', 'manager']
+]);
+
+Route::get("/fornecedores/{fornecedores}/edit", [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'FornecedoresController@edit',
+    'as' => 'fornecedor.edit',
+    'roles' => ['administrator']
+]);
+
+Route::get("/fornecedores/{fornecedores}/edit", [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'FornecedoresController@edit',
+    'as' => 'fornecedores.edit',
+    'roles' => ['administrator']
+]);
+
+Route::patch("/fornecedores/{fornecedores}", [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'FornecedoresController@update',
+    'as' => 'fornecedores.update',
+    'roles' => ['administrator']
+]);
+
+Route::get("/fornecedores/{fornecedores}/delete", [
+    'middleware' => ['auth', 'roles'],
+    'uses' => 'FornecedoresController@destroy',
+    'as' => 'fornecedores.destroy',
+    'roles' => ['administrator']
+]);
+
+
+
+// FERRAMENTAS
 
     Route::get('/espera', [
         'middleware' => ['auth', 'roles'],
@@ -119,6 +189,12 @@
         'middleware' => ['auth', 'roles'],
         'uses' => 'FechamentoController@index',
         'roles' => ['administrator', 'manager']
+    ]);
+
+    Route::get('/codigobarra', [
+        'middleware' => ['auth', 'roles'],
+        'uses' => 'BarraController@index',
+        'roles' => ['administrator', 'manager', 'employee']
     ]);
 
 // COBRANCA
@@ -136,7 +212,7 @@
         'roles' => ['administrator', 'manager']
     ]);
 
-    Route::get('/codigobarra', 'BarraController@index');
+
 
     Route::get('/login', 'PagesController@login');
 
